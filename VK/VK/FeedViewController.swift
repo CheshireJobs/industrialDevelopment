@@ -1,11 +1,13 @@
 import UIKit
+import StorageService
 
 final class FeedViewController: UIViewController {
     
-    let post: Post = Post(title: "Пост")
+    var post: Post?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        post?.title = "Пост"
         print(type(of: self), #function)
     }
     
