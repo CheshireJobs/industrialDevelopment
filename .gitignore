@@ -88,3 +88,9 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+Podfile
+*.lock
+*.pbxproj
+LICENSE
+VK/Pods
+VK/VK.xcworkspace
