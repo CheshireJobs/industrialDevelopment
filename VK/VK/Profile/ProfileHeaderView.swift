@@ -4,7 +4,7 @@ import SnapKit
 
 class ProfileHeaderView: UIView {
     
-    let avatarImageView: UIImageView = {
+    var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.image = UIImage(named: "Jobs")
@@ -15,7 +15,7 @@ class ProfileHeaderView: UIView {
         return avatarImageView
     }()
     
-    let fullNameLabel: UILabel = {
+    var fullNameLabel: UILabel = {
         let fullNameLabel = UILabel()
         fullNameLabel.text = "Steve Jobs"
         fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -75,6 +75,10 @@ class ProfileHeaderView: UIView {
         setupConstraints()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func setupConstraints() {
         fullNameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
@@ -119,9 +123,4 @@ class ProfileHeaderView: UIView {
             statusText = txt
         }
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-   
 }

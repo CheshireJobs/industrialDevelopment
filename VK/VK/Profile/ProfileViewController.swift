@@ -6,6 +6,18 @@ class ProfileViewController: UIViewController {
     
     private let tableView = UITableView()
     private let reuseID = "cellId"
+    private var userService: UserService
+    var currentUser: User?
+   
+    init(userService: UserService, userLogin: String) {
+        self.userService = userService
+        super.init(nibName: nil, bundle: nil)
+        currentUser = userService.getUser(userLogin: userLogin)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +35,6 @@ class ProfileViewController: UIViewController {
         #endif
         navigationController?.navigationBar.isHidden = true
     }
-    
     
     private func setupTableView() {
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: reuseID)
@@ -90,10 +101,13 @@ extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if(section == 0 ) {
-            guard let profileHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as? ProfileTableHeaderView else {
+            guard let profileTableHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as? ProfileTableHeaderView else {
                 return nil
             }
-            return profileHeaderView
+            profileTableHeaderView.profileHeaderView.fullNameLabel.text = currentUser?.fullName
+            profileTableHeaderView.profileHeaderView.avatarImageView.image = UIImage(named: currentUser?.photo ?? "logo")
+            profileTableHeaderView.profileHeaderView.statusTextField.text = currentUser?.statusString
+            return profileTableHeaderView
         } else {
             return nil
         }

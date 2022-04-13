@@ -2,7 +2,7 @@ import UIKit
 
 class ProfileTableHeaderView: UITableViewHeaderFooterView {
     
-    private let profileHeaderView = ProfileHeaderView()
+    let profileHeaderView = ProfileHeaderView()
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
