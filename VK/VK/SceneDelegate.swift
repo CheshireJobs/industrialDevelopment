@@ -11,10 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        var loginInspector = LoginInspector()
+        var myLoginFactory = MyLoginFactory()
         
         if let tabController = window?.rootViewController as? UITabBarController, let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.first as? LogInViewController {
-            loginController.delegate = loginInspector
+            loginController.delegate = myLoginFactory.getLoginInspector()
         }
     }
 

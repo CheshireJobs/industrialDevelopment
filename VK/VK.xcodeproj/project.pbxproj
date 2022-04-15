@@ -32,6 +32,8 @@
 		3ABFE2E8280A302800DE477A /* ChechkAuthorizationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFE2E7280A302800DE477A /* ChechkAuthorizationProtocol.swift */; };
 		3ABFE2EA280A309D00DE477A /* LoginViewControllerDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFE2E9280A309D00DE477A /* LoginViewControllerDelegateProtocol.swift */; };
 		3ABFE2EC280A30E600DE477A /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFE2EB280A30E600DE477A /* LoginInspector.swift */; };
+		3ABFE2EE280A32BC00DE477A /* LoginFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFE2ED280A32BC00DE477A /* LoginFactoryProtocol.swift */; };
+		3ABFE2F0280A32F100DE477A /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */; };
 		3AC6189826D1727B005F46C4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */; };
 		3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */; };
 		7FB463C05F85D94087E64A35 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198565516217D19FD64B676D /* Pods_StorageService.framework */; };
@@ -91,6 +93,8 @@
 		3ABFE2E7280A302800DE477A /* ChechkAuthorizationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChechkAuthorizationProtocol.swift; sourceTree = "<group>"; };
 		3ABFE2E9280A309D00DE477A /* LoginViewControllerDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegateProtocol.swift; sourceTree = "<group>"; };
 		3ABFE2EB280A30E600DE477A /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		3ABFE2ED280A32BC00DE477A /* LoginFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactoryProtocol.swift; sourceTree = "<group>"; };
+		3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		5191A6B14113440E4DA2B908 /* Pods_VK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,7 @@
 				3ABFE2E3280A2C7D00DE477A /* Services */,
 				3A7B7EF12662B235006C0FE2 /* Profile */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
+				3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */,
 				3ABFE2EB280A30E600DE477A /* LoginInspector.swift */,
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				060782B5250CE27700A87020 /* FeedViewController.swift */,
@@ -199,6 +204,7 @@
 			children = (
 				3ABFE2E7280A302800DE477A /* ChechkAuthorizationProtocol.swift */,
 				3ABFE2E9280A309D00DE477A /* LoginViewControllerDelegateProtocol.swift */,
+				3ABFE2ED280A32BC00DE477A /* LoginFactoryProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -409,7 +415,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABFE2EE280A32BC00DE477A /* LoginFactoryProtocol.swift in Sources */,
 				3A7F7D4526D6760200DC2B8F /* PhotosTableViewCell.swift in Sources */,
+				3ABFE2F0280A32F100DE477A /* MyLoginFactory.swift in Sources */,
 				3A7F7D4726D7A14600DC2B8F /* PhotosCollectionViewCell.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
