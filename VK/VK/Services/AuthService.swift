@@ -8,11 +8,7 @@ final class AuthSevice: CheckAuthorization {
     private let password = "MyPassword"
     
     func checkAuthorization(login: String, password: String) -> Bool {
-        if login.hash == self.login.hash && password.hash == self.password.hash {
-            return true
-        } else {
-            return false
-        }
+        return login.hash == self.login.hash && password.hash == self.password.hash
     }
     
     /// Use shared property instead
