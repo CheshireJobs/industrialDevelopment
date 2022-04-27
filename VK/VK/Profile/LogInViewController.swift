@@ -154,7 +154,13 @@ class LogInViewController: UIViewController {
     }
     
     @objc func loginButtonPressed() {
-        let profileViewController = ProfileViewController()
+        var currentUserService: UserService
+        #if DEBUG
+        currentUserService = TestUserService()
+        #else
+        currentUserService = CurrentUserService()
+        #endif
+        let profileViewController = ProfileViewController(userService: currentUserService, userLogin: emailTextField.text ?? "error")
         navigationController?.pushViewController(profileViewController , animated: true)
     }
     
