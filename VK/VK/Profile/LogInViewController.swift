@@ -7,6 +7,7 @@ class LogInViewController: UIViewController {
 // MARK: properties
     private let scrollView = UIScrollView()
     private let containerView = UIView()
+    weak var delegate: LoginViewControllerDelegate?
     
     private let enterDataStackView: UIStackView = {
         let enterDataView = UIStackView()
