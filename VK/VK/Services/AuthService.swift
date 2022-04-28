@@ -4,7 +4,7 @@ import UIKit
 final class AuthSevice: CheckAuthorization {
     static let shared = AuthSevice()
     
-    private let login = "Cheshire"
+    private let login = "testCheshire"
     private let password = "MyPassword"
     
     func checkAuthorization(login: String, password: String) -> Bool {

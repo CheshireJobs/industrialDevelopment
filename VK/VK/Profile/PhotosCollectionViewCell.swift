@@ -8,8 +8,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private let photoImageView: UIImageView = {
-        let photoImageView = UIImageView()
+    var photoImageView: UIImageView = {
+        var photoImageView = UIImageView()
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
         photoImageView.contentMode = .scaleAspectFill
         photoImageView.layer.cornerRadius = 6
