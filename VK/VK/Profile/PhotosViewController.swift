@@ -1,5 +1,6 @@
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
@@ -12,6 +13,9 @@ class PhotosViewController: UIViewController {
         return photoCollectionView
     }()
     
+    private var imageCollection = [UIImage]()
+    private var imagePublisherFacade = ImagePublisherFacade()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -20,10 +24,18 @@ class PhotosViewController: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         
+        imagePublisherFacade.subscribe(self)
+        imagePublisherFacade.addImagesWithTimer(time: 1, repeat: 22)
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupConstraints()
+    }
+    
+    deinit {
+        imagePublisherFacade.removeSubscription(for: self)
+        imagePublisherFacade.rechargeImageLibrary()
     }
 
 }
@@ -50,21 +62,27 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
 
 extension PhotosViewController: UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoGallery.count
+        return imageCollection.count
    }
 
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosCollectionViewCell.self), for: indexPath) as! PhotosCollectionViewCell
-        cell.namePhoto = photoGallery[indexPath.item]
+        cell.photoImageView.image = imageCollection[indexPath.item]
         return cell
    }
-
 }
 
 extension PhotosViewController: UICollectionViewDelegate {
 
 }
 
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        imageCollection = images
+        photoCollectionView.reloadData()
+    }
+}
+                                    
 private extension PhotosViewController {
     private func setupConstraints() {
         view.addSubview(photoCollectionView)
