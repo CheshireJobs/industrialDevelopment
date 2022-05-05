@@ -10,7 +10,7 @@ final class PostTableViewCell: UITableViewCell {
         didSet {
             postAuthorLabel.text = post!.author
             let imageProcessor = ImageProcessor()
-            var sourcePhoto = UIImage(named: post!.image)
+            let sourcePhoto = UIImage(named: post!.image)
             imageProcessor.processImage(sourceImage: sourcePhoto!, filter: ColorFilter.fade, completion: {(filteredImage) in postImageView.image = filteredImage })
             postDescriptionLabel.text = post!.description
             postLikesLabel.text = "Likes: \(String(describing: post!.likes))"
@@ -71,7 +71,6 @@ final class PostTableViewCell: UITableViewCell {
         
         setupConstraints()
     }
-    
 }
 
 //MARK: layout

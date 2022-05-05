@@ -46,18 +46,22 @@ class ProfileHeaderView: UIView {
         return statusTextField
     }()
     
-    lazy var setStatusButton: UIButton = {
-        let setStatusButton = UIButton()
+    lazy var setStatusButton: CustomButton = {
+        let setStatusButton = CustomButton(title: "Set Status", titleColor: .white)
         setStatusButton.backgroundColor = .blue
-        setStatusButton.setTitle("Set Status", for: .normal)
-        setStatusButton.setTitleColor(.white, for: .normal)
         setStatusButton.layer.cornerRadius = 4
         setStatusButton.layer.shadowOffset.width = 4
         setStatusButton.layer.shadowOffset.height = 4
         setStatusButton.layer.shadowRadius = 4
         setStatusButton.layer.shadowColor = UIColor.black.cgColor
         setStatusButton.layer.shadowOpacity = 0.7
-        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        setStatusButton.onTap = {
+            if self.statusText.count == 0 {
+                return
+            } else {
+                self.profileStatusLabel.text = self.statusText
+            }
+        }
         return setStatusButton
     }()
     
@@ -107,14 +111,6 @@ class ProfileHeaderView: UIView {
         }
         self.snp.makeConstraints { make in
             make.height.equalTo(220)
-        }
-    }
-    
-    @objc private func buttonPressed() {
-        if(statusText.count == 0){
-            return
-        } else {
-            profileStatusLabel.text = statusText
         }
     }
     
