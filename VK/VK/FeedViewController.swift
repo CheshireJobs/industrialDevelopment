@@ -4,60 +4,60 @@ import StorageService
 final class FeedViewController: UIViewController {
     
     var post: Post?
+    private var model: Model?
     
+    private lazy var feedView: FeedView = {
+        var view = FeedView()
+        view.delegate = self
+        return view
+    }()
+    
+    init(model: Model) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setLabel), name: .answerChanged, object: nil)
+    }
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         post?.title = "Пост"
-        print(type(of: self), #function)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        print(type(of: self), #function)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        view = feedView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(type(of: self), #function)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(type(of: self), #function)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print(type(of: self), #function)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print(type(of: self), #function)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print(type(of: self), #function)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        print(type(of: self), #function)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        print(type(of: self), #function)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "post" else {
-            return
+    @objc
+    private func setLabel(notification: Notification) {
+        if let answer = notification.object as? Bool {
+            feedView.setResultLabel(answer: answer)
         }
-        guard let postViewController = segue.destination as? PostViewController else {
-            return
-        }
+    }
+}
+
+extension FeedViewController: FeedViewDelegate {
+    func openPostViewController() {
+        let postViewController = PostViewController()
         postViewController.post = post
+        self.navigationController?.pushViewController(postViewController, animated: true)
+    }
+    
+    func checkWord(word: String) {
+        model?.check(word: word)
     }
 }

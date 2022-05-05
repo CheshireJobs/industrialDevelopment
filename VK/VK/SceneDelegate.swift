@@ -11,11 +11,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        var myLoginFactory = MyLoginFactory()
+        let myLoginFactory = MyLoginFactory()
         
-        if let tabController = window?.rootViewController as? UITabBarController, let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.first as? LogInViewController {
+        let model = Model()
+        let feedViewController = FeedViewController(model: model)
+        
+        if let tabController = window?.rootViewController as? UITabBarController, let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.first as? LogInViewController, let feedNavigation =  tabController.viewControllers?.first as? UINavigationController {
             loginController.delegate = myLoginFactory.getLoginInspector()
+            feedNavigation.pushViewController(feedViewController, animated: true)
         }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

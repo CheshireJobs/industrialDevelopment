@@ -26,14 +26,21 @@ class LogInViewController: UIViewController {
     
     private let separateView = UIView()
     
-    private lazy var loginButton: UIButton = {
-        let loginButton = UIButton()
+    private lazy var loginButton: CustomButton = {
+        let loginButton = CustomButton(title: "Log In", titleColor: .white)
         loginButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
-        loginButton.setTitle("Log In", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
         loginButton.layer.cornerRadius = 10
         loginButton.clipsToBounds = true
-        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        loginButton.onTap = {
+            var currentUserService: UserService
+            #if DEBUG
+            currentUserService = TestUserService()
+            #else
+            currentUserService = CurrentUserService()
+            #endif
+            let profileViewController = ProfileViewController(userService: currentUserService, userLogin: self.emailTextField.text ?? "error")
+            self.navigationController?.pushViewController(profileViewController , animated: true)
+        }
         return loginButton
     }()
     
@@ -152,17 +159,6 @@ class LogInViewController: UIViewController {
         ]
         
         NSLayoutConstraint.activate(constraints)
-    }
-    
-    @objc func loginButtonPressed() {
-        var currentUserService: UserService
-        #if DEBUG
-        currentUserService = TestUserService()
-        #else
-        currentUserService = CurrentUserService()
-        #endif
-        let profileViewController = ProfileViewController(userService: currentUserService, userLogin: emailTextField.text ?? "error")
-        navigationController?.pushViewController(profileViewController , animated: true)
     }
     
 //MARK: keyboard notifications
