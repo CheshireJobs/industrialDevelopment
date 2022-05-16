@@ -5,6 +5,7 @@ final class FeedViewController: UIViewController {
     
     var post: Post?
     private var model: Model?
+    var onOpenPostButtonTapped: (() -> Void)?
     
     private lazy var feedView: FeedView = {
         var view = FeedView()
@@ -16,16 +17,12 @@ final class FeedViewController: UIViewController {
         self.model = model
         super.init(nibName: nil, bundle: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(setLabel), name: .answerChanged, object: nil)
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         post?.title = "Пост"
+        NotificationCenter.default.addObserver(self, selector: #selector(setLabel), name: .answerChanged, object: nil)
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
@@ -52,9 +49,7 @@ final class FeedViewController: UIViewController {
 
 extension FeedViewController: FeedViewDelegate {
     func openPostViewController() {
-        let postViewController = PostViewController()
-        postViewController.post = post
-        self.navigationController?.pushViewController(postViewController, animated: true)
+        onOpenPostButtonTapped?()
     }
     
     func checkWord(word: String) {
