@@ -76,12 +76,11 @@ final class FeedCoordinator: Coordinator {
     var navigationController = UINavigationController()
     
     func start() {
-        let model = Model()
-        let feedViewController = FeedViewController(model: model)
-        feedViewController.onOpenPostButtonTapped = {
+        let feedViewController = ModuleFactory.makeFeedModule()
+        feedViewController.viewModel.onOpenPostButtonTapped = {
             self.showPost()
         }
-        
+    
         navigationController.setViewControllers([feedViewController], animated: false)
         navigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house.circle"), tag: 0)
     }

@@ -4,8 +4,7 @@ import StorageService
 final class FeedViewController: UIViewController {
     
     var post: Post?
-    private var model: Model?
-    var onOpenPostButtonTapped: (() -> Void)?
+    var viewModel: FeedViewModel
     
     private lazy var feedView: FeedView = {
         var view = FeedView()
@@ -13,20 +12,29 @@ final class FeedViewController: UIViewController {
         return view
     }()
     
-    init(model: Model) {
-        self.model = model
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
+        setupViewModel()
         post?.title = "Пост"
-        NotificationCenter.default.addObserver(self, selector: #selector(setLabel), name: .answerChanged, object: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    func setupViewModel() {
+        viewModel.onStateChanged = { [weak self] state in
+            switch state {
+            case .initial:
+                ()
+            case .loadingCheckResult:
+                ()
+            case let .answerChanged(answer: answer):
+                self?.feedView.setResultLabel(answer: answer)
+            }
+        }
     }
     
     override func loadView() {
@@ -38,21 +46,14 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @objc
-    private func setLabel(notification: Notification) {
-        if let answer = notification.object as? Bool {
-            feedView.setResultLabel(answer: answer)
-        }
-    }
 }
 
 extension FeedViewController: FeedViewDelegate {
-    func openPostViewController() {
-        onOpenPostButtonTapped?()
+    func checkWord(word: String) {
+        viewModel.send(action: .onCheckButtonPressed(word: word))
     }
     
-    func checkWord(word: String) {
-        model?.check(word: word)
+    func openPostViewController() {
+        viewModel.send(action: .onPostButtonPressed)
     }
 }
