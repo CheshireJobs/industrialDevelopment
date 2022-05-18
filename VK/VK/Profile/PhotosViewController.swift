@@ -13,8 +13,31 @@ class PhotosViewController: UIViewController {
         return photoCollectionView
     }()
     
-    private var imageCollection = [UIImage]()
+    private var imageCollection: [UIImage] = [
+        UIImage(named: "bell")!,
+        UIImage(named: "dance")!,
+        UIImage(named: "dancer")!,
+        UIImage(named: "Dancing")!,
+        UIImage(named: "Dani")!,
+        UIImage(named: "Daniela")!,
+        UIImage(named: "DoIt")!,
+        UIImage(named: "Education")!,
+        UIImage(named: "Eva")!,
+        UIImage(named: "Home")!,
+        UIImage(named: "bell")!,
+        UIImage(named: "dance")!,
+        UIImage(named: "dancer")!,
+        UIImage(named: "Dancing")!,
+        UIImage(named: "Dani")!,
+        UIImage(named: "Daniela")!,
+        UIImage(named: "DoIt")!,
+        UIImage(named: "Education")!,
+        UIImage(named: "Eva")!,
+        UIImage(named: "Home")!
+    ]
+    
     private var imagePublisherFacade = ImagePublisherFacade()
+    private var imageProcessor = ImageProcessor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +47,15 @@ class PhotosViewController: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         
+        let start = DispatchTime.now()
+        let end = DispatchTime.now()
+        imageProcessor.processImagesOnThread(sourceImages: imageCollection, filter: .colorInvert, qos: .background, completion: { _ in })
+        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let timeInterval = Double(nanoTime) / 1_000_000_000
+        print("time - \(timeInterval)")
+        
         imagePublisherFacade.subscribe(self)
-        imagePublisherFacade.addImagesWithTimer(time: 1, repeat: 22)
+        imagePublisherFacade.addImagesWithTimer(time:  1, repeat: 22, userImages: imageCollection)
     }
     
     override func viewWillLayoutSubviews() {
