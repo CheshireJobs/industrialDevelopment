@@ -21,6 +21,7 @@
 		3A00E45327CC1F7C009A16AB /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A00E44A27CC1F7C009A16AB /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A00E45927CC22EA009A16AB /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00E45827CC22EA009A16AB /* Storage.swift */; };
 		3A00E45B27CC22ED009A16AB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00E45A27CC22ED009A16AB /* Post.swift */; };
+		3A0340CC28349CAF00F26408 /* BruteForceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0340CB28349CAE00F26408 /* BruteForceService.swift */; };
 		3A4C12EC2821F44C007D7950 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C12EB2821F44C007D7950 /* FeedView.swift */; };
 		3A4F61D626CBA18C002DF1D3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */; };
 		3A5DA105281B7EE600E3CE90 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DA104281B7EE600E3CE90 /* CustomButton.swift */; };
@@ -89,6 +90,7 @@
 		3A00E44D27CC1F7C009A16AB /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
 		3A00E45827CC22EA009A16AB /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3A00E45A27CC22ED009A16AB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3A0340CB28349CAE00F26408 /* BruteForceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceService.swift; sourceTree = "<group>"; };
 		3A4C12EB2821F44C007D7950 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3A5DA104281B7EE600E3CE90 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				3ABFE2E3280A2C7D00DE477A /* Services */,
 				3A7B7EF12662B235006C0FE2 /* Profile */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
+				3A0340CB28349CAE00F26408 /* BruteForceService.swift */,
 				3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */,
 				3ABFE2EB280A30E600DE477A /* LoginInspector.swift */,
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
@@ -445,6 +448,7 @@
 				3ABFE2EC280A30E600DE477A /* LoginInspector.swift in Sources */,
 				3A7B7EF32664A14B006C0FE2 /* ProfileHeaderView.swift in Sources */,
 				3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */,
+				3A0340CC28349CAF00F26408 /* BruteForceService.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				3A9F23ED280717D9002F5641 /* TestUserService.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
