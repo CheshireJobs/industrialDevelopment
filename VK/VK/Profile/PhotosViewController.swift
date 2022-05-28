@@ -33,6 +33,26 @@ class PhotosViewController: UIViewController {
         UIImage(named: "DoIt")!,
         UIImage(named: "Education")!,
         UIImage(named: "Eva")!,
+        UIImage(named: "Home")!,
+        UIImage(named: "bell")!,
+        UIImage(named: "dance")!,
+        UIImage(named: "dancer")!,
+        UIImage(named: "Dancing")!,
+        UIImage(named: "Dani")!,
+        UIImage(named: "Daniela")!,
+        UIImage(named: "DoIt")!,
+        UIImage(named: "Education")!,
+        UIImage(named: "Eva")!,
+        UIImage(named: "Home")!,
+        UIImage(named: "bell")!,
+        UIImage(named: "dance")!,
+        UIImage(named: "dancer")!,
+        UIImage(named: "Dancing")!,
+        UIImage(named: "Dani")!,
+        UIImage(named: "Daniela")!,
+        UIImage(named: "DoIt")!,
+        UIImage(named: "Education")!,
+        UIImage(named: "Eva")!,
         UIImage(named: "Home")!
     ]
     
@@ -48,11 +68,12 @@ class PhotosViewController: UIViewController {
         photoCollectionView.delegate = self
         
         let start = DispatchTime.now()
-        let end = DispatchTime.now()
-        imageProcessor.processImagesOnThread(sourceImages: imageCollection, filter: .colorInvert, qos: .background, completion: { _ in })
-        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-        let timeInterval = Double(nanoTime) / 1_000_000_000
-        print("time - \(timeInterval)")
+        imageProcessor.processImagesOnThread(sourceImages: imageCollection, filter: .colorInvert, qos: .background, completion: { _ in
+            let end = DispatchTime.now()
+            let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+            let timeInterval = Double(nanoTime) / 1_000_000_000
+            print("time - \(timeInterval)")
+        })
         
         imagePublisherFacade.subscribe(self)
         imagePublisherFacade.addImagesWithTimer(time:  1, repeat: 22, userImages: imageCollection)
