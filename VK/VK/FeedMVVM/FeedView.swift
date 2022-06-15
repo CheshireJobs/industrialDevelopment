@@ -52,8 +52,8 @@ final class FeedView: UIView {
         var checkButton = CustomButton(title: "Open post", titleColor: .white)
         checkButton.layer.cornerRadius = 10
         checkButton.backgroundColor = .black
-        checkButton.onTap = {
-            self.delegate?.openPostViewController()
+        checkButton.onTap = { [weak self] in
+            self?.delegate?.openPostViewController()
         }
         return checkButton
     }()
@@ -62,8 +62,8 @@ final class FeedView: UIView {
         var checkButton = CustomButton(title: "Open post", titleColor: .white)
         checkButton.layer.cornerRadius = 10
         checkButton.backgroundColor = .black
-        checkButton.onTap = {
-            self.delegate?.openPostViewController()
+        checkButton.onTap = { [weak self] in
+            self?.delegate?.openPostViewController()
         }
         return checkButton
     }()

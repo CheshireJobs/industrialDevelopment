@@ -8,7 +8,8 @@ class ProfileViewController: UIViewController {
     private let reuseID = "cellId"
     private var userService: UserService
     var currentUser: User?
-   
+    var onPhotosRowSelected: (() -> Void)?
+    
     init(userService: UserService, userLogin: String) {
         self.userService = userService
         super.init(nibName: nil, bundle: nil)
@@ -120,9 +121,7 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 0) {
-            let photosViewController = PhotosViewController()
-            photosViewController.title = "Photo Gallery"
-            navigationController?.pushViewController(photosViewController, animated: true)
+            onPhotosRowSelected?()
         }
     }
 }

@@ -3,12 +3,11 @@ import Security
 
 class LogInViewController: UIViewController {
     
-    @IBOutlet var profileView: UIView!
-    
 // MARK: properties
     private let scrollView = UIScrollView()
     private let containerView = UIView()
     weak var delegate: LoginViewControllerDelegate?
+    var onLoginButtonTapped: ((UserService, String) -> Void)?
     
     private let enterDataStackView: UIStackView = {
         let enterDataView = UIStackView()
@@ -39,8 +38,7 @@ class LogInViewController: UIViewController {
             #else
             currentUserService = CurrentUserService()
             #endif
-            let profileViewController = ProfileViewController(userService: currentUserService, userLogin: self.emailTextField.text ?? "error")
-            self.navigationController?.pushViewController(profileViewController , animated: true)
+            self.onLoginButtonTapped?(currentUserService, self.emailTextField.text ?? "error")
         }
         return loginButton
     }()
