@@ -1,4 +1,5 @@
 import UIKit
+import Security
 
 class LogInViewController: UIViewController {
     
@@ -42,6 +43,16 @@ class LogInViewController: UIViewController {
         return loginButton
     }()
     
+    private lazy var guessPasswordButton: CustomButton = {
+        let guessPasswordButton = CustomButton(title: "Don't know password? Crack it!", titleColor: .white)
+        guessPasswordButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
+        guessPasswordButton.layer.cornerRadius = 10
+        guessPasswordButton.clipsToBounds = true
+        return guessPasswordButton
+    }()
+    
+    private var activityIndicatorView = UIActivityIndicatorView()
+    
     private let emailTextField: UITextField = {
         let emailTextField = UITextField()
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: emailTextField.frame.height))
@@ -74,6 +85,21 @@ class LogInViewController: UIViewController {
         
         setupEnterDataStackViewConstraints()
         setupConstraints()
+        
+        let queue = DispatchQueue.global(qos: .utility)
+        
+        guessPasswordButton.onTap = {
+            self.activityIndicatorView.startAnimating()
+            queue.async {
+                let password = SecCreateSharedWebCredentialPassword() as String?
+                bruteForce(passwordToUnlock: password ?? "error")
+                DispatchQueue.main.async { [weak self] in
+                    self?.passwordTextField.text = password
+                    self?.passwordTextField.isSecureTextEntry = false
+                    self?.activityIndicatorView.stopAnimating()
+                }
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -124,8 +150,14 @@ class LogInViewController: UIViewController {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         enterDataStackView.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
+        guessPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.addSubviews(loginButton, logoImageView, enterDataStackView)
+        containerView.addSubviews(loginButton,
+                                  guessPasswordButton,
+                                  logoImageView,
+                                  enterDataStackView,
+                                  activityIndicatorView)
         
         let constraints = [
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -153,7 +185,15 @@ class LogInViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             loginButton.topAnchor.constraint(equalTo: enterDataStackView.bottomAnchor, constant: 16),
-            loginButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            
+            guessPasswordButton.heightAnchor.constraint(equalToConstant: 50),
+            guessPasswordButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            guessPasswordButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            guessPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
+            guessPasswordButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            
+            activityIndicatorView.trailingAnchor.constraint(equalTo: enterDataStackView.trailingAnchor,constant: -16),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: enterDataStackView.bottomAnchor, constant: -49.75/2)
         ]
         
         NSLayoutConstraint.activate(constraints)
