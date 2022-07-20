@@ -28,6 +28,8 @@
 		3A5DA105281B7EE600E3CE90 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DA104281B7EE600E3CE90 /* CustomButton.swift */; };
 		3A5DA107281C993E00E3CE90 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DA106281C993E00E3CE90 /* Model.swift */; };
 		3A6C92A1281A02990074966B /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6C92A0281A02990074966B /* iOSIntPackage */; };
+		3A6EFE5A2886278C00253DF8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EFE592886278C00253DF8 /* NetworkService.swift */; };
+		3A6EFE5C288628DE00253DF8 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EFE5B288628DE00253DF8 /* AppConfiguration.swift */; };
 		3A7B7EF32664A14B006C0FE2 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B7EF22664A14B006C0FE2 /* ProfileHeaderView.swift */; };
 		3A7B7EF52664A1E2006C0FE2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */; };
 		3A7F7D4526D6760200DC2B8F /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */; };
@@ -97,6 +99,8 @@
 		3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3A5DA104281B7EE600E3CE90 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3A5DA106281C993E00E3CE90 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3A6EFE592886278C00253DF8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3A6EFE5B288628DE00253DF8 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppConfiguration.swift; path = VK/AppConfiguration.swift; sourceTree = SOURCE_ROOT; };
 		3A7B7EF22664A14B006C0FE2 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				3ABFE2EB280A30E600DE477A /* LoginInspector.swift */,
 				060782C7250CEE5D00A87020 /* PostViewController.swift */,
 				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
+				3A6EFE5B288628DE00253DF8 /* AppConfiguration.swift */,
 				3AE4B9EC28062C9F000F8B46 /* User.swift */,
 				3A5DA104281B7EE600E3CE90 /* CustomButton.swift */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
@@ -227,6 +232,7 @@
 			children = (
 				3ABFE2E4280A2CB000DE477A /* AuthService.swift */,
 				3A9F23EC280717D9002F5641 /* TestUserService.swift */,
+				3A6EFE592886278C00253DF8 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				3A7F7D4726D7A14600DC2B8F /* PhotosCollectionViewCell.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
+				3A6EFE5C288628DE00253DF8 /* AppConfiguration.swift in Sources */,
 				3A4F61D626CBA18C002DF1D3 /* LogInViewController.swift in Sources */,
 				3ABFE2E8280A302800DE477A /* ChechkAuthorizationProtocol.swift in Sources */,
 				3ABFE2EC280A30E600DE477A /* LoginInspector.swift in Sources */,
@@ -472,6 +479,7 @@
 				3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */,
 				3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */,
 				3AA1FAB92824B8770090EF20 /* Coordinator.swift in Sources */,
+				3A6EFE5A2886278C00253DF8 /* NetworkService.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
 				3ABFE2E5280A2CB000DE477A /* AuthService.swift in Sources */,
 			);
