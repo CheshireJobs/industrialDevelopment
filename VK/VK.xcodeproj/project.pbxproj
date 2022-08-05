@@ -23,6 +23,7 @@
 		3A0340CC28349CAF00F26408 /* BruteForceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0340CB28349CAE00F26408 /* BruteForceService.swift */; };
 		3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213A81283316F500CFC9F9 /* ModuleFactory.swift */; };
 		3A213A852833201700CFC9F9 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213A842833201700CFC9F9 /* FeedViewModel.swift */; };
+		3A265225289225E000899459 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A265224289225DF00899459 /* JsonModel.swift */; };
 		3A4C12EC2821F44C007D7950 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C12EB2821F44C007D7950 /* FeedView.swift */; };
 		3A4F61D626CBA18C002DF1D3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */; };
 		3A5DA105281B7EE600E3CE90 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DA104281B7EE600E3CE90 /* CustomButton.swift */; };
@@ -95,6 +96,7 @@
 		3A0340CB28349CAE00F26408 /* BruteForceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceService.swift; sourceTree = "<group>"; };
 		3A213A81283316F500CFC9F9 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
 		3A213A842833201700CFC9F9 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		3A265224289225DF00899459 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		3A4C12EB2821F44C007D7950 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3A5DA104281B7EE600E3CE90 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				3ABFE2EB280A30E600DE477A /* LoginInspector.swift */,
 				060782C7250CEE5D00A87020 /* PostViewController.swift */,
 				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
+				3A265224289225DF00899459 /* JsonModel.swift */,
 				3A6EFE5B288628DE00253DF8 /* AppConfiguration.swift */,
 				3AE4B9EC28062C9F000F8B46 /* User.swift */,
 				3A5DA104281B7EE600E3CE90 /* CustomButton.swift */,
@@ -478,6 +481,7 @@
 				3A5DA105281B7EE600E3CE90 /* CustomButton.swift in Sources */,
 				3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */,
 				3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */,
+				3A265225289225E000899459 /* JsonModel.swift in Sources */,
 				3AA1FAB92824B8770090EF20 /* Coordinator.swift in Sources */,
 				3A6EFE5A2886278C00253DF8 /* NetworkService.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,

@@ -12,11 +12,39 @@ class InfoViewController: UIViewController {
         }
         return alertButton
     }()
-
+    private var titleLabel: UILabel = {
+        var titleLabel = UILabel()
+        titleLabel.textColor = .white
+        return titleLabel
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .lightGray
+        
+        if let jsonModelUrl = URL(string: "https://jsonplaceholder.typicode.com/todos/22") {
+            let task = URLSession.shared.dataTask(with: jsonModelUrl) { data, responce, error in
+                if let jsonData = data {
+                    do {
+                        let deserializedData = try JSONSerialization.jsonObject(with: jsonData, options: [])
+                        if let dictionary = deserializedData as? [String: Any] {
+                            let user = JsonUser(userId: dictionary["userId"] as? Int ?? 0,
+                                                id: dictionary["id"] as? Int ?? 0,
+                                                title: dictionary["title"] as? String ?? "error",
+                                                completed:  dictionary["completed"] as? Bool ?? false)
+                            DispatchQueue.main.async {
+                                self.titleLabel.text = user.title
+                            }
+                        }
+                    }
+                    catch let error {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+        }
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -42,10 +70,16 @@ private extension InfoViewController {
     
     func setupConstraints() {
         view.addSubview(alertButton)
+        view.addSubview(titleLabel)
         
         alertButton.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.top).offset(36)
         }
     }
 }
