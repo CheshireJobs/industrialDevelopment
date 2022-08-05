@@ -28,10 +28,7 @@ class InfoViewController: UIViewController {
                     do {
                         let deserializedData = try JSONSerialization.jsonObject(with: jsonData, options: [])
                         if let dictionary = deserializedData as? [String: Any] {
-                            let user = JsonUser(userId: dictionary["userId"] as? Int ?? 0,
-                                                id: dictionary["id"] as? Int ?? 0,
-                                                title: dictionary["title"] as? String ?? "error",
-                                                completed:  dictionary["completed"] as? Bool ?? false)
+                            let user = JsonUser(dictionary: dictionary)
                             DispatchQueue.main.async {
                                 self.titleLabel.text = user.title
                             }
