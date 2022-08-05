@@ -24,6 +24,7 @@
 		3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213A81283316F500CFC9F9 /* ModuleFactory.swift */; };
 		3A213A852833201700CFC9F9 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213A842833201700CFC9F9 /* FeedViewModel.swift */; };
 		3A265225289225E000899459 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A265224289225DF00899459 /* JsonModel.swift */; };
+		3A307A46289CC2FA00E06123 /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A307A45289CC2FA00E06123 /* PlanetModel.swift */; };
 		3A4C12EC2821F44C007D7950 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C12EB2821F44C007D7950 /* FeedView.swift */; };
 		3A4F61D626CBA18C002DF1D3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */; };
 		3A5DA105281B7EE600E3CE90 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DA104281B7EE600E3CE90 /* CustomButton.swift */; };
@@ -97,6 +98,7 @@
 		3A213A81283316F500CFC9F9 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
 		3A213A842833201700CFC9F9 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		3A265224289225DF00899459 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
+		3A307A45289CC2FA00E06123 /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
 		3A4C12EB2821F44C007D7950 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3A5DA104281B7EE600E3CE90 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
 				3A265224289225DF00899459 /* JsonModel.swift */,
 				3A6EFE5B288628DE00253DF8 /* AppConfiguration.swift */,
+				3A307A45289CC2FA00E06123 /* PlanetModel.swift */,
 				3AE4B9EC28062C9F000F8B46 /* User.swift */,
 				3A5DA104281B7EE600E3CE90 /* CustomButton.swift */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
@@ -456,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABFE2EE280A32BC00DE477A /* LoginFactoryProtocol.swift in Sources */,
+				3A307A46289CC2FA00E06123 /* PlanetModel.swift in Sources */,
 				3A7F7D4526D6760200DC2B8F /* PhotosTableViewCell.swift in Sources */,
 				3ABFE2F0280A32F100DE477A /* MyLoginFactory.swift in Sources */,
 				3A7F7D4726D7A14600DC2B8F /* PhotosCollectionViewCell.swift in Sources */,

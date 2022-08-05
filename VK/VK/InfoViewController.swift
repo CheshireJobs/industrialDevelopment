@@ -17,6 +17,11 @@ class InfoViewController: UIViewController {
         titleLabel.textColor = .white
         return titleLabel
     }()
+    private var planetPeriodLabel: UILabel = {
+        var planetPeriodLabel = UILabel()
+        planetPeriodLabel.textColor = .white
+        return planetPeriodLabel
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,24 @@ class InfoViewController: UIViewController {
                             DispatchQueue.main.async {
                                 self.titleLabel.text = user.title
                             }
+                        }
+                    }
+                    catch let error {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+        }
+        
+        if let jsonPlanetModelUrl = URL(string: "https://swapi.dev/api/planets/1") {
+            let task = URLSession.shared.dataTask(with: jsonPlanetModelUrl) { data, responce, error in
+                if let jsonData = data {
+                    do {
+                        let planetModel = try JSONDecoder().decode(PlanetModel.self, from: jsonData)
+                        
+                        DispatchQueue.main.async {
+                            self.planetPeriodLabel.text = "период обращения планеты Татуин - " + planetModel.orbitalPeriod 
                         }
                     }
                     catch let error {
@@ -68,6 +91,7 @@ private extension InfoViewController {
     func setupConstraints() {
         view.addSubview(alertButton)
         view.addSubview(titleLabel)
+        view.addSubview(planetPeriodLabel)
         
         alertButton.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -77,6 +101,11 @@ private extension InfoViewController {
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.top).offset(36)
+        }
+        
+        planetPeriodLabel.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.leading)
+            make.centerY.equalTo(titleLabel.snp.bottom).offset(136)
         }
     }
 }
