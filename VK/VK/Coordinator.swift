@@ -130,8 +130,8 @@ final class PostCoordinator: Coordinator {
         guard let navigationController = navigationController else {
             return
         }
-        let infoCoordibator = InfoCoordinator(navigationController: navigationController)
-        infoCoordibator.start()
+        let infoCoordinator = InfoCoordinator(navigationController: navigationController)
+        infoCoordinator.start()
     }
 }
 
@@ -172,7 +172,7 @@ final class ProfileCoordinator: Coordinator {
         guard let navigationController = navigationController else {
             return
         }
-        let photosCoordinator = PhotosCoordinator(navogationController: navigationController)
+        let photosCoordinator = PhotosCoordinator(navigationController: navigationController)
         photosCoordinator.start()
     }
 }
@@ -180,8 +180,8 @@ final class ProfileCoordinator: Coordinator {
 final class PhotosCoordinator: Coordinator {
     var navigationController: UINavigationController?
     
-    init(navogationController: UINavigationController) {
-        self.navigationController = navogationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {

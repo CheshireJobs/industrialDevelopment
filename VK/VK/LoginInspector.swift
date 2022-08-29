@@ -1,7 +1,14 @@
 import Foundation
+import UIKit
 
 class LoginInspector: LoginViewControllerDelegate {
-    func check(login: String, password: String) -> Bool {
-        return AuthSevice.shared.checkAuthorization(login: login, password: password)
+    private var checkerService = CheckerService.shared
+    
+    func checheckCredentials(login: String, password: String, controller: LogInViewController) {
+        checkerService.checheckCredentials(login: login, password: password, controller: controller)
+    }
+    
+    func signUp(login: String, password: String,controller: LogInViewController) {
+        checkerService.signUp(login: login, password: password, controller: controller)
     }
 }

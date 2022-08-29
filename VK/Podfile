@@ -15,5 +15,7 @@ target 'VK' do
 
   # Pods for VK
   pod 'SnapKit', '~> 5.0.0'
+  pod 'FirebaseAuth'
+  pod 'Firebase/Core'
 
 end
