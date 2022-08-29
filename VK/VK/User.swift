@@ -20,7 +20,7 @@ class User {
 }
 
 class CurrentUserService: UserService {
-    var currentUser = User(userLogin: "cheshire", fullName: "Cheshire Cat", photo: "cheshireCat", statusString: "I'm cheshire cat")
+    var currentUser = User(userLogin: "CheshireSpb@yandex.ru", fullName: "Cheshire Cat", photo: "cheshireCat", statusString: "I'm cheshire cat")
     
     func getUser(userLogin: String) -> User? {
         if userLogin == currentUser.userLogin {

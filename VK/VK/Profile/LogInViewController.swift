@@ -1,12 +1,13 @@
 import UIKit
 import Security
+import FirebaseAuth
 
 class LogInViewController: UIViewController {
     
 // MARK: properties
     private let scrollView = UIScrollView()
     private let containerView = UIView()
-    weak var delegate: LoginViewControllerDelegate?
+    var delegate: LoginViewControllerDelegate?
     var onLoginButtonTapped: ((UserService, String) -> Void)?
     
     private let enterDataStackView: UIStackView = {
@@ -26,21 +27,44 @@ class LogInViewController: UIViewController {
     
     private let separateView = UIView()
     
-    private lazy var loginButton: CustomButton = {
-        let loginButton = CustomButton(title: "Log In", titleColor: .white)
-        loginButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
-        loginButton.layer.cornerRadius = 10
-        loginButton.clipsToBounds = true
-        loginButton.onTap = {
-            var currentUserService: UserService
-            #if DEBUG
-            currentUserService = TestUserService()
-            #else
-            currentUserService = CurrentUserService()
-            #endif
-            self.onLoginButtonTapped?(currentUserService, self.emailTextField.text ?? "error")
+    private lazy var singinButton: CustomButton = {
+        let singinButton = CustomButton(title: "Sign in", titleColor: .white)
+        singinButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
+        singinButton.layer.cornerRadius = 10
+        singinButton.clipsToBounds = true
+        singinButton.isEnabled = false
+        singinButton.onTap = {
+//            var currentUserService: UserService
+//            #if DEBUG
+//            currentUserService = TestUserService()
+//            #else
+//            currentUserService = CurrentUserService()
+//            #endif
+//            self.onLoginButtonTapped?(currentUserService, self.emailTextField.text ?? "error")
+            
+            self.delegate?.checheckCredentials(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
         }
-        return loginButton
+        return singinButton
+    }()
+    
+    private lazy var singupButton: CustomButton = {
+        let singupButton = CustomButton(title: "Sign up", titleColor: .white)
+        singupButton.backgroundColor = .systemGreen
+        singupButton.layer.cornerRadius = 10
+        singupButton.clipsToBounds = true
+        singupButton.isEnabled = false
+        singupButton.onTap = {
+//            var currentUserService: UserService
+//            #if DEBUG
+//            currentUserService = TestUserService()
+//            #else
+//            currentUserService = CurrentUserService()
+//            #endif
+//            self.onLoginButtonTapped?(currentUserService, self.emailTextField.text ?? "error")
+            
+            self.delegate?.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+        }
+        return singupButton
     }()
     
     private lazy var guessPasswordButton: CustomButton = {
@@ -64,6 +88,7 @@ class LogInViewController: UIViewController {
         return emailTextField
     }()
     
+    
     private let passwordTextField: UITextField = {
         let passwordTextField = UITextField()
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: passwordTextField.frame.height))
@@ -82,6 +107,9 @@ class LogInViewController: UIViewController {
         view.backgroundColor = .white
         scrollView.keyboardDismissMode = .onDrag
         navigationController?.navigationBar.isHidden = true
+        
+        emailTextField.addTarget(self, action: #selector(enabledButton), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(enabledButton), for: .editingChanged)
         
         setupEnterDataStackViewConstraints()
         setupConstraints()
@@ -102,8 +130,40 @@ class LogInViewController: UIViewController {
         }
     }
     
+    @objc func enabledButton() {
+        singupButton.isEnabled = (emailTextField.text != "" && passwordTextField.text != "") ? true : false
+        singinButton.isEnabled = (emailTextField.text != "" && passwordTextField.text != "") ? true : false
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+    }
+    
+    //MARK: keyboard notifications
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc fileprivate func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset.bottom = keyboardSize.height
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        }
+    }
+
+    @objc fileprivate func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset.bottom = .zero
+        scrollView.verticalScrollIndicatorInsets = .zero
     }
     
     private func setupEnterDataStackViewConstraints() {
@@ -149,11 +209,13 @@ class LogInViewController: UIViewController {
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         enterDataStackView.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        singinButton.translatesAutoresizingMaskIntoConstraints = false
+        singupButton.translatesAutoresizingMaskIntoConstraints = false
         guessPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.addSubviews(loginButton,
+        containerView.addSubviews(singinButton,
+                                  singupButton,
                                   guessPasswordButton,
                                   logoImageView,
                                   enterDataStackView,
@@ -181,49 +243,27 @@ class LogInViewController: UIViewController {
             enterDataStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             enterDataStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
 
-            loginButton.heightAnchor.constraint(equalToConstant: 50),
-            loginButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            loginButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            loginButton.topAnchor.constraint(equalTo: enterDataStackView.bottomAnchor, constant: 16),
+            singinButton.heightAnchor.constraint(equalToConstant: 50),
+            singinButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            singinButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            singinButton.topAnchor.constraint(equalTo: enterDataStackView.bottomAnchor, constant: 16),
             
             guessPasswordButton.heightAnchor.constraint(equalToConstant: 50),
             guessPasswordButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             guessPasswordButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            guessPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
-            guessPasswordButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            guessPasswordButton.topAnchor.constraint(equalTo: singinButton.bottomAnchor, constant: 16),
+
+            singupButton.heightAnchor.constraint(equalToConstant: 50),
+            singupButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            singupButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            singupButton.topAnchor.constraint(equalTo: guessPasswordButton.bottomAnchor, constant: 26),
+            singupButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
             activityIndicatorView.trailingAnchor.constraint(equalTo: enterDataStackView.trailingAnchor,constant: -16),
             activityIndicatorView.centerYAnchor.constraint(equalTo: enterDataStackView.bottomAnchor, constant: -49.75/2)
         ]
         
         NSLayoutConstraint.activate(constraints)
-    }
-    
-//MARK: keyboard notifications
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc fileprivate func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollView.contentInset.bottom = keyboardSize.height
-            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-        }
-    }
-    
-    @objc fileprivate func keyboardWillHide(notification: NSNotification) {
-        scrollView.contentInset.bottom = .zero
-        scrollView.verticalScrollIndicatorInsets = .zero
     }
 
 }
