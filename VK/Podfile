@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '15.2'
 
 target 'StorageService' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -17,5 +17,6 @@ target 'VK' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'FirebaseAuth'
   pod 'Firebase/Core'
+  pod 'RealmSwift'
 
 end

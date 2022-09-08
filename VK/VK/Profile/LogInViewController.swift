@@ -8,6 +8,7 @@ class LogInViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let containerView = UIView()
     var delegate: LoginViewControllerDelegate?
+    var authRealm = AuthRealmService.shared
     var onLoginButtonTapped: ((UserService, String) -> Void)?
     
     private let enterDataStackView: UIStackView = {
@@ -34,15 +35,10 @@ class LogInViewController: UIViewController {
         singinButton.clipsToBounds = true
         singinButton.isEnabled = false
         singinButton.onTap = {
-//            var currentUserService: UserService
-//            #if DEBUG
-//            currentUserService = TestUserService()
-//            #else
-//            currentUserService = CurrentUserService()
-//            #endif
-//            self.onLoginButtonTapped?(currentUserService, self.emailTextField.text ?? "error")
+//            self.delegate?.checheckCredentials(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
             
-            self.delegate?.checheckCredentials(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+            self.authRealm.signIn(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+            
         }
         return singinButton
     }()
@@ -54,15 +50,9 @@ class LogInViewController: UIViewController {
         singupButton.clipsToBounds = true
         singupButton.isEnabled = false
         singupButton.onTap = {
-//            var currentUserService: UserService
-//            #if DEBUG
-//            currentUserService = TestUserService()
-//            #else
-//            currentUserService = CurrentUserService()
-//            #endif
-//            self.onLoginButtonTapped?(currentUserService, self.emailTextField.text ?? "error")
+//            self.delegate?.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
             
-            self.delegate?.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+            self.authRealm.signUp(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
         }
         return singupButton
     }()

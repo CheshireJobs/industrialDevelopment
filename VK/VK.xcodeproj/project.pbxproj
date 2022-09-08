@@ -51,6 +51,8 @@
 		3AC6189826D1727B005F46C4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */; };
 		3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */; };
 		3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4B9EC28062C9F000F8B46 /* User.swift */; };
+		3AF74B7928C9698B00E10991 /* AuthRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */; };
+		3AF74B7B28C987A800E10991 /* AuthRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7A28C987A800E10991 /* AuthRealmService.swift */; };
 		7FB463C05F85D94087E64A35 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198565516217D19FD64B676D /* Pods_StorageService.framework */; };
 		BC037E2E8E643F6D5F299A2B /* Pods_VK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5191A6B14113440E4DA2B908 /* Pods_VK.framework */; };
 /* End PBXBuildFile section */
@@ -127,6 +129,8 @@
 		3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		3AE4B9EC28062C9F000F8B46 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmModel.swift; sourceTree = "<group>"; };
+		3AF74B7A28C987A800E10991 /* AuthRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmService.swift; sourceTree = "<group>"; };
 		5191A6B14113440E4DA2B908 /* Pods_VK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD089A2D1CFA6DDCED51AD9F /* Pods-VK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.release.xcconfig"; path = "Target Support Files/Pods-VK/Pods-VK.release.xcconfig"; sourceTree = "<group>"; };
 		FC245701FA3EA41B19EEF44E /* Pods-VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.debug.xcconfig"; path = "Target Support Files/Pods-VK/Pods-VK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,12 +181,12 @@
 		060782B0250CE27700A87020 /* VK */ = {
 			isa = PBXGroup;
 			children = (
+				3AF74B7728C9695D00E10991 /* Models */,
 				3A213A8328331FCD00CFC9F9 /* FeedMVVM */,
 				3ABFE2E6280A2FFD00DE477A /* Protocols */,
 				3ABFE2E3280A2C7D00DE477A /* Services */,
 				3A7B7EF12662B235006C0FE2 /* Profile */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
-				3A0340CB28349CAE00F26408 /* BruteForceService.swift */,
 				3A213A81283316F500CFC9F9 /* ModuleFactory.swift */,
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				3AA1FAB82824B8770090EF20 /* Coordinator.swift */,
@@ -229,9 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				3A4F61D526CBA18C002DF1D3 /* LogInViewController.swift */,
+				3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */,
 				3A7B7EF22664A14B006C0FE2 /* ProfileHeaderView.swift */,
 				3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */,
-				3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */,
 				3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */,
 				3ABBCE0726D7C81F00D50C80 /* PhotosViewController.swift */,
 				3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */,
@@ -243,10 +247,12 @@
 		3ABFE2E3280A2C7D00DE477A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3A0340CB28349CAE00F26408 /* BruteForceService.swift */,
 				3ABFE2E4280A2CB000DE477A /* AuthService.swift */,
 				3A9F23EC280717D9002F5641 /* TestUserService.swift */,
 				3A6EFE592886278C00253DF8 /* NetworkService.swift */,
 				3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */,
+				3AF74B7A28C987A800E10991 /* AuthRealmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -260,6 +266,14 @@
 				3AAC89B128B9B50400AF3436 /* CheckerServiceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3AF74B7728C9695D00E10991 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		42607360BF23188940C305F6 /* Frameworks */ = {
@@ -497,7 +511,9 @@
 				3A5DA105281B7EE600E3CE90 /* CustomButton.swift in Sources */,
 				3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */,
 				3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */,
+				3AF74B7B28C987A800E10991 /* AuthRealmService.swift in Sources */,
 				3A265225289225E000899459 /* JsonModel.swift in Sources */,
+				3AF74B7928C9698B00E10991 /* AuthRealmModel.swift in Sources */,
 				3AA1FAB92824B8770090EF20 /* Coordinator.swift in Sources */,
 				3A6EFE5A2886278C00253DF8 /* NetworkService.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,

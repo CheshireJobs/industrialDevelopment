@@ -15,7 +15,7 @@ class CheckerService: CheckerServiceProtocol {
                 print(error.localizedDescription)
             } else if let authResult = authResult {
                  print(authResult)
-                let currentUserService = CurrentUserService()
+                let currentUserService = CurrentUserService(userLogin: login)
                 if  Auth.auth().currentUser != nil {
                     controller.onLoginButtonTapped?(currentUserService, login)
                 }
