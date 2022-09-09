@@ -103,6 +103,12 @@ final class loginCoordinator: Coordinator {
         loginViewController.delegate = myLoginFactory.getLoginInspector()
         navigationController.setViewControllers([loginViewController], animated: false)
         navigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
+        
+        if UserDefaults.standard.bool(forKey: "isAuthorized") {
+            let userInfo = UserDefaults.standard.string(forKey: "userInfo")
+            let currentUserService = CurrentUserService(userLogin: userInfo ?? "error")
+            showProfile(userService: currentUserService, login: userInfo ?? "error")
+        }
     }
     
     func showProfile(userService: UserService, login: String) {
