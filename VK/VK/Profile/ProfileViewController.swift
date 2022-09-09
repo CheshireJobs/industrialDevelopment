@@ -114,14 +114,26 @@ extension ProfileViewController: UITableViewDataSource {
         }
     }
     
+    @objc func doubleTaped(sender: UIGestureRecognizer) {
+        let touchLocation: CGPoint = sender.location(in: sender.view)
+        guard let indexPath: IndexPath = tableView.indexPathForRow(at: touchLocation) else { return }
+        DataBaseManager.shared.doubleTaped(post: postTableModel[indexPath.row])
+        print("addPostToFavorites: \(indexPath.row)")
+    }
+    
 }
 
 //MARK: UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 0) {
+        if indexPath.section == 0 {
             onPhotosRowSelected?()
+        }
+        if indexPath.section == 1 {
+            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTaped))
+            doubleTap.numberOfTapsRequired = 2
+            tableView.addGestureRecognizer(doubleTap)
         }
     }
 }
