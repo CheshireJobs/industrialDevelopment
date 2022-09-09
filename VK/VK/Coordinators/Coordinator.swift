@@ -62,13 +62,17 @@ class ApplicationCoordinator: BaseCoordinator, Coordinator {
     private func startMainFlow() {
         let feedCoordinator = FeedCoordinator()
         let loginCoordinator = loginCoordinator()
+        let favoritesCoordinator = FavoritesCoordinator()
+        
         addDependency(coordinator: feedCoordinator)
         addDependency(coordinator: loginCoordinator)
-        
-        tabBarController.viewControllers = [feedCoordinator.navigationController, loginCoordinator.navigationController]
+        addDependency(coordinator: favoritesCoordinator)
+
+        tabBarController.viewControllers = [feedCoordinator.navigationController, loginCoordinator.navigationController, favoritesCoordinator.navigationController]
         
         feedCoordinator.start()
         loginCoordinator.start()
+        favoritesCoordinator.start()
     }
 }
  
@@ -88,6 +92,17 @@ final class FeedCoordinator: Coordinator {
     func showPost() {
         let postCoordinator = PostCoordinator(navigationController: navigationController)
         postCoordinator.start()
+    }
+}
+
+final class FavoritesCoordinator: Coordinator {
+    var navigationController = UINavigationController()
+    
+    func start() {
+        let favoritesViewController = FavoritesViewController()
+    
+        navigationController.setViewControllers([favoritesViewController], animated: false)
+        navigationController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.circle.fill"), tag: 0)
     }
 }
 

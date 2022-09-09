@@ -7,6 +7,14 @@ public struct MyPost {
     public let likes: Int
     public let views: Int
     public let description: String
+    
+    public init(author: String, image: String, likes: Int, views: Int, description: String) {
+        self.author = author
+        self.image = image
+        self.likes = likes
+        self.views = views
+        self.description = description
+    }
 }
 
 public let previewPhotoGallery  = [
