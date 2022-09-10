@@ -117,7 +117,7 @@ extension ProfileViewController: UITableViewDataSource {
     @objc func doubleTaped(sender: UIGestureRecognizer) {
         let touchLocation: CGPoint = sender.location(in: sender.view)
         guard let indexPath: IndexPath = tableView.indexPathForRow(at: touchLocation) else { return }
-        DataBaseManager.shared.doubleTaped(post: postTableModel[indexPath.row])
+        DataBaseManager.shared.saveToFavorites(post: postTableModel[indexPath.row])
         print("addPostToFavorites: \(indexPath.row)")
     }
     
