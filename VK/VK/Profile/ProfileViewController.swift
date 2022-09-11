@@ -135,5 +135,6 @@ extension ProfileViewController: UITableViewDelegate {
             doubleTap.numberOfTapsRequired = 2
             tableView.addGestureRecognizer(doubleTap)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
