@@ -54,6 +54,7 @@
 		3ABFE2F0280A32F100DE477A /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */; };
 		3AC6189826D1727B005F46C4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */; };
 		3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */; };
+		3AC9800E28ED03A8001D952A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9800D28ED03A8001D952A /* MapViewController.swift */; };
 		3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4B9EC28062C9F000F8B46 /* User.swift */; };
 		3AF74B7928C9698B00E10991 /* AuthRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */; };
 		3AF74B7B28C987A800E10991 /* AuthRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7A28C987A800E10991 /* AuthRealmService.swift */; };
@@ -135,6 +136,7 @@
 		3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		3AC9800D28ED03A8001D952A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3AE4B9EC28062C9F000F8B46 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmModel.swift; sourceTree = "<group>"; };
 		3AF74B7A28C987A800E10991 /* AuthRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmService.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				3A213A81283316F500CFC9F9 /* ModuleFactory.swift */,
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				3ABFE2EF280A32F100DE477A /* MyLoginFactory.swift */,
+				3AC9800D28ED03A8001D952A /* MapViewController.swift */,
 				3ABFE2EB280A30E600DE477A /* LoginInspector.swift */,
 				060782C7250CEE5D00A87020 /* PostViewController.swift */,
 				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
@@ -542,6 +545,7 @@
 				3A5DA107281C993E00E3CE90 /* Model.swift in Sources */,
 				3ABFE2EA280A309D00DE477A /* LoginViewControllerDelegateProtocol.swift in Sources */,
 				3A120EBC28CB121C00EF23C4 /* DataBaseModel.xcdatamodeld in Sources */,
+				3AC9800E28ED03A8001D952A /* MapViewController.swift in Sources */,
 				3A4C12EC2821F44C007D7950 /* FeedView.swift in Sources */,
 				3AC6189826D1727B005F46C4 /* PostTableViewCell.swift in Sources */,
 				3A120EBE28CB15F400EF23C4 /* DataBaseManager.swift in Sources */,
