@@ -25,7 +25,7 @@ class ProfileHeaderView: UIView {
     
     var profileStatusLabel: UILabel = {
         let profileStatusLabel = UILabel()
-        profileStatusLabel.text = "Waiting for something..."
+        profileStatusLabel.text = "status_text".localized
         profileStatusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         profileStatusLabel.textColor = .gray
         return profileStatusLabel
@@ -47,7 +47,7 @@ class ProfileHeaderView: UIView {
     }()
     
     lazy var setStatusButton: CustomButton = {
-        let setStatusButton = CustomButton(title: "Set Status", titleColor: .white)
+        let setStatusButton = CustomButton(title: "status_button".localized, titleColor: .white)
         setStatusButton.backgroundColor = .blue
         setStatusButton.layer.cornerRadius = 4
         setStatusButton.layer.shadowOffset.width = 4

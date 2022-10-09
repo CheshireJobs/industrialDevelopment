@@ -1,0 +1,39 @@
+
+"delete_all_pins" = "delete all pins";
+"map" = "Map";
+"feed" = "Feed";
+"profile" = "Profile";
+"favorites" = "Favorites";
+
+// feed
+"enter_password" = "Enter password";
+"check_password" = "Check password";
+"open_post" = "Open post";
+
+//info
+"tap_me" = "Tap me!";
+"period" = "orbital period of the planet Taurine:";
+"delete_post" = "Delete post?";
+"delete_message" = "It can't be recovered";
+"cancel_title" = "Cancel";
+"delete_title" = "Delete";
+
+// login
+"email_or_phone" = "Email or phone";
+"password" = "Password";
+"sign_in" = "Sidn in";
+"sign_up" = "Sign up";
+"crack_password" = "Don't know password? Crack it!";
+
+// auth
+"login_error_text" = "User with this login does not exist";
+"signin_error" = "Login failed";
+"password_error_text" = "Invalid password";
+
+// profile
+"status_text" = "Waiting for something...";
+"status_button" = "Set status";
+"photos_title" = "Photos";
+"likes_title" = "Likes:";
+"views_title" = "Views:";
+

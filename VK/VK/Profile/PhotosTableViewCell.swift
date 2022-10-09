@@ -6,7 +6,7 @@ class PhotosTableViewCell: UITableViewCell {
     private let headerLabel: UILabel = {
         let headerLabel = UILabel()
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.text = "Photos"
+        headerLabel.text = "photos_title".localized
         headerLabel.textColor = .black 
         headerLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return headerLabel

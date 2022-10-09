@@ -7,7 +7,7 @@ final class MapViewController: UIViewController, CLLocationManagerDelegate, MKMa
     private var locationManager = CLLocationManager()
     private var deletePinsButton: UIButton = {
         var button = UIButton()
-        button.setTitle("delete all pins", for: .normal)
+        button.setTitle("delete_all_pins".localized, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,7 @@ extension MapViewController {
         mapView.isRotateEnabled = false
         mapView.setCenter(locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 40.7143, longitude: -74.006), animated: true)
         
-        NSLayoutConstraint.activate([ß
+        NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -133,5 +133,11 @@ extension MapViewController {
         @unknown default:
             fatalError("Необрабатываемый статус")
         }
+    }
+}
+
+extension String {
+    var localized: String  {
+        NSLocalizedString(self, comment: "")
     }
 }

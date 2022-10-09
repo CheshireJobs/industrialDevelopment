@@ -18,7 +18,7 @@ final class FeedView: UIView {
         textField.leftViewMode = UITextField.ViewMode.always
         textField.backgroundColor = .systemGray6
         textField.layer.cornerRadius = 10
-        textField.placeholder = "enter password"
+        textField.placeholder = "enter_password".localized
         return textField
     }()
     
@@ -28,7 +28,7 @@ final class FeedView: UIView {
     }()
     
     private lazy var checkButton: CustomButton = {
-        var checkButton = CustomButton(title: "Check password", titleColor: .white)
+        var checkButton = CustomButton(title: "check_password".localized, titleColor: .white)
         checkButton.layer.cornerRadius = 10
         checkButton.backgroundColor = .black
         checkButton.onTap = {
@@ -49,7 +49,7 @@ final class FeedView: UIView {
     }()
     
     private lazy var openPostButtonOne: CustomButton = {
-        var checkButton = CustomButton(title: "Open post", titleColor: .white)
+        var checkButton = CustomButton(title: "open_post".localized, titleColor: .white)
         checkButton.layer.cornerRadius = 10
         checkButton.backgroundColor = .black
         checkButton.onTap = { [weak self] in
@@ -59,7 +59,7 @@ final class FeedView: UIView {
     }()
     
     private lazy var openPostButtonTwo: CustomButton = {
-        var checkButton = CustomButton(title: "Open post", titleColor: .white)
+        var checkButton = CustomButton(title: "open_post".localized, titleColor: .white)
         checkButton.layer.cornerRadius = 10
         checkButton.backgroundColor = .black
         checkButton.onTap = { [weak self] in
