@@ -60,19 +60,33 @@ class ApplicationCoordinator: BaseCoordinator, Coordinator {
     }
     
     private func startMainFlow() {
+        let mapCoordinator = MapCoordinator()
         let feedCoordinator = FeedCoordinator()
         let loginCoordinator = loginCoordinator()
         let favoritesCoordinator = FavoritesCoordinator()
         
+        addDependency(coordinator: mapCoordinator)
         addDependency(coordinator: feedCoordinator)
         addDependency(coordinator: loginCoordinator)
         addDependency(coordinator: favoritesCoordinator)
 
-        tabBarController.viewControllers = [feedCoordinator.navigationController, loginCoordinator.navigationController, favoritesCoordinator.navigationController]
+        tabBarController.viewControllers = [mapCoordinator.navigationController, feedCoordinator.navigationController, loginCoordinator.navigationController, favoritesCoordinator.navigationController]
         
+        mapCoordinator.start()
         feedCoordinator.start()
         loginCoordinator.start()
         favoritesCoordinator.start()
+    }
+}
+
+final class MapCoordinator: Coordinator {
+    var navigationController = UINavigationController()
+    
+    func start() {
+        let mapViewController = MapViewController()
+    
+        navigationController.setViewControllers([mapViewController], animated: false)
+        navigationController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(systemName: "map.circle.fill"), tag: 0)
     }
 }
  
