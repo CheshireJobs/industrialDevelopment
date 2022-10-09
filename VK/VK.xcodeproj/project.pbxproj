@@ -28,6 +28,7 @@
 		3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213A81283316F500CFC9F9 /* ModuleFactory.swift */; };
 		3A213A852833201700CFC9F9 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A213A842833201700CFC9F9 /* FeedViewModel.swift */; };
 		3A265225289225E000899459 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A265224289225DF00899459 /* JsonModel.swift */; };
+		3A2B2D3128F3300200963BA1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C9A5228F27845003AE6C4 /* Localizable.stringsdict */; };
 		3A2C9A4C28F2634D003AE6C4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C9A4E28F2634D003AE6C4 /* Localizable.strings */; };
 		3A307A46289CC2FA00E06123 /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A307A45289CC2FA00E06123 /* PlanetModel.swift */; };
 		3A4C12EC2821F44C007D7950 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C12EB2821F44C007D7950 /* FeedView.swift */; };
@@ -450,6 +451,7 @@
 				060782BE250CE27A00A87020 /* LaunchScreen.storyboard in Resources */,
 				3A2C9A4C28F2634D003AE6C4 /* Localizable.strings in Resources */,
 				060782BB250CE27A00A87020 /* Assets.xcassets in Resources */,
+				3A2B2D3128F3300200963BA1 /* Localizable.stringsdict in Resources */,
 				3A120EB428C9FA5D00EF23C4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
