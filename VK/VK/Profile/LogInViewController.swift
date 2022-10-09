@@ -29,7 +29,7 @@ class LogInViewController: UIViewController {
     private let separateView = UIView()
     
     private lazy var singinButton: CustomButton = {
-        let singinButton = CustomButton(title: "Sign in", titleColor: .white)
+        let singinButton = CustomButton(title: "sign_in".localized, titleColor: .white)
         singinButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
         singinButton.layer.cornerRadius = 10
         singinButton.clipsToBounds = true
@@ -44,7 +44,7 @@ class LogInViewController: UIViewController {
     }()
     
     private lazy var singupButton: CustomButton = {
-        let singupButton = CustomButton(title: "Sign up", titleColor: .white)
+        let singupButton = CustomButton(title: "sign_up".localized, titleColor: .white)
         singupButton.backgroundColor = .systemGreen
         singupButton.layer.cornerRadius = 10
         singupButton.clipsToBounds = true
@@ -58,7 +58,7 @@ class LogInViewController: UIViewController {
     }()
     
     private lazy var guessPasswordButton: CustomButton = {
-        let guessPasswordButton = CustomButton(title: "Don't know password? Crack it!", titleColor: .white)
+        let guessPasswordButton = CustomButton(title: "crack_password".localized, titleColor: .white)
         guessPasswordButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
         guessPasswordButton.layer.cornerRadius = 10
         guessPasswordButton.clipsToBounds = true
@@ -74,7 +74,7 @@ class LogInViewController: UIViewController {
         emailTextField.leftViewMode = UITextField.ViewMode.always
         emailTextField.backgroundColor = .systemGray6
         emailTextField.layer.cornerRadius = 10
-        emailTextField.placeholder = "Email or phone"
+        emailTextField.placeholder = "email_or_phone".localized
         return emailTextField
     }()
     
@@ -86,7 +86,7 @@ class LogInViewController: UIViewController {
         passwordTextField.leftViewMode = UITextField.ViewMode.always
         passwordTextField.backgroundColor = .systemGray6
         passwordTextField.layer.cornerRadius = 10
-        passwordTextField.placeholder = "Password"
+        passwordTextField.placeholder = "password".localized
         passwordTextField.isSecureTextEntry = true
         
         return passwordTextField

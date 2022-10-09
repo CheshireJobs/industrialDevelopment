@@ -4,7 +4,7 @@ import SnapKit
 class InfoViewController: UIViewController {
     
     private lazy var alertButton: CustomButton = {
-        var alertButton = CustomButton(title: "tap me!", titleColor: .white)
+        var alertButton = CustomButton(title: "tap_me".localized, titleColor: .white)
         alertButton.layer.cornerRadius = 10
         alertButton.backgroundColor = .black
         alertButton.onTap = {
@@ -54,7 +54,7 @@ class InfoViewController: UIViewController {
                         let planetModel = try JSONDecoder().decode(PlanetModel.self, from: jsonData)
                         
                         DispatchQueue.main.async {
-                            self.planetPeriodLabel.text = "период обращения планеты Татуин - " + planetModel.orbitalPeriod 
+                            self.planetPeriodLabel.text = "period".localized + planetModel.orbitalPeriod
                         }
                     }
                     catch let error {
@@ -76,11 +76,11 @@ class InfoViewController: UIViewController {
 
 private extension InfoViewController {
     func showAlert() {
-        let alertController = UIAlertController(title: "Удалить пост?", message: "Пост нельзя будет восстановить", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .default) { _ in
+        let alertController = UIAlertController(title: "delete_post".localized, message: "delete_message".localized, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "cancel_title".localized, style: .default) { _ in
             print("Отмена")
         }
-        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+        let deleteAction = UIAlertAction(title: "delete_title".localized, style: .destructive) { _ in
             print("Удалить")
         }
         alertController.addAction(cancelAction)
