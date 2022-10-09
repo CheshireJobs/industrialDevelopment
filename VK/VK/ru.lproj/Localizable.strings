@@ -1,0 +1,39 @@
+
+"delete_all_pins" = "Удалить все местоположения";
+"map" = "Карта";
+"feed" = "Новости";
+"profile" = "Профиль";
+"favorites" = "Избранное";
+
+// feed
+"enter_password" = "Введите пароль";
+"check_password" = "Проверить пароль";
+"open_post" = "Открыть пост";
+
+//info
+"tap_me" = "Нажми меня!";
+"period" = "период обращения планеты Таурин:";
+"delete_post" = "Удалить пост?";
+"delete_message" = "Пост нельзя будет восстановить";
+"cancel_title" = "Отмена";
+"delete_title" = "Удалить";
+
+// login
+"email_or_phone" = "Почта или пароль";
+"password" = "Пароль";
+"sign_in" = "Войти";
+"sign_up" = "Зарегестрироваться";
+"crack_password" = "Не знаете пароль? Взломать его!";
+
+// auth
+"login_error_text" = "Пользователя с таким логином не существует";
+"signin_error" = "Ошибка входа";
+"password_error_text" = "Неверный пароль";
+
+// profile
+"status_text" = "Жду...";
+"status_button" = "Установить статус";
+"photos_title" = "Фото";
+"likes_title" = "Понравилось:";
+"views_title" = "Просмотрели:";
+

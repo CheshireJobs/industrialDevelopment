@@ -13,8 +13,10 @@ final class PostTableViewCell: UITableViewCell {
             let sourcePhoto = UIImage(named: post!.image)
             imageProcessor.processImage(sourceImage: sourcePhoto!, filter: ColorFilter.fade, completion: {(filteredImage) in postImageView.image = filteredImage })
             postDescriptionLabel.text = post!.description
-            postLikesLabel.text = "Likes: \(String(describing: post!.likes))"
-            postViewLabel.text = "Views: \(String(describing: post!.views))"
+            let localized = NSLocalizedString("any_likes", comment: "")
+            let formatted = String.localizedStringWithFormat(localized, post!.likes)
+            postLikesLabel.text = formatted//"likes_title".localized + "\(String(describing: post!.likes))"
+            postViewLabel.text = "views_title".localized + "\(String(describing: post!.views))"
         }
     }
 

@@ -86,7 +86,7 @@ final class MapCoordinator: Coordinator {
         let mapViewController = MapViewController()
     
         navigationController.setViewControllers([mapViewController], animated: false)
-        navigationController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(systemName: "map.circle.fill"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "map".localized, image: UIImage(systemName: "map.circle.fill"), tag: 0)
     }
 }
  
@@ -100,7 +100,7 @@ final class FeedCoordinator: Coordinator {
         }
     
         navigationController.setViewControllers([feedViewController], animated: false)
-        navigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house.circle"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "feed".localized, image: UIImage(systemName: "house.circle"), tag: 0)
     }
     
     func showPost() {
@@ -116,7 +116,7 @@ final class FavoritesCoordinator: Coordinator {
         let favoritesViewController = FavoritesViewController()
     
         navigationController.setViewControllers([favoritesViewController], animated: false)
-        navigationController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.circle.fill"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "favorites".localized, image: UIImage(systemName: "star.circle.fill"), tag: 0)
     }
 }
 
@@ -131,7 +131,7 @@ final class loginCoordinator: Coordinator {
         let myLoginFactory = MyLoginFactory()
         loginViewController.delegate = myLoginFactory.getLoginInspector()
         navigationController.setViewControllers([loginViewController], animated: false)
-        navigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
+        navigationController.tabBarItem = UITabBarItem(title: "profile".localized, image: UIImage(systemName: "person.circle"), tag: 1)
         
         if UserDefaults.standard.bool(forKey: "isAuthorized") {
             let userInfo = UserDefaults.standard.string(forKey: "userInfo")

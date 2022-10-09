@@ -32,14 +32,14 @@ final class AuthRealmService {
         let realm = try? Realm(configuration: configuration)
         guard let users: Results<AuthRealmModel> = { realm?.objects(AuthRealmModel.self) }() else { fatalError() }
         guard let user = users.filter({$0.login == login }).first else {
-            let alertController = UIAlertController(title: "Sign ip error", message: "Пользователя с таким логином не существует", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "signin_error".localized, message: "login_error_text".localized, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
             alertController.addAction(cancelAction)
             controller.present(alertController, animated: true, completion: nil)
             return
         }
          guard user.password == password else {
-            let alertController = UIAlertController(title: "Sign ip error", message: "Неверный пароль", preferredStyle: .alert)
+             let alertController = UIAlertController(title: "signin_error".localized, message: "password_error_text".localized, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
             alertController.addAction(cancelAction)
             controller.present(alertController, animated: true, completion: nil)
