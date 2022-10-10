@@ -8,7 +8,7 @@ class ProfileHeaderView: UIView {
         let avatarImageView = UIImageView()
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.image = UIImage(named: "Jobs")
-        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderWidth = 2
         avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.layer.cornerRadius = 130 / 2
         avatarImageView.clipsToBounds = true
@@ -19,7 +19,7 @@ class ProfileHeaderView: UIView {
         let fullNameLabel = UILabel()
         fullNameLabel.text = "Steve Jobs"
         fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        fullNameLabel.textColor = .black
+        fullNameLabel.textColor = .appLabelColor
         return fullNameLabel
     }()
     

@@ -9,7 +9,7 @@ class PhotosViewController: UIViewController {
         let photoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         photoCollectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PhotosCollectionViewCell.self))
         photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        photoCollectionView.backgroundColor = .white
+        photoCollectionView.backgroundColor = .appBackgroundColor
         return photoCollectionView
     }()
     
@@ -61,7 +61,7 @@ class PhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .appBackgroundColor
         self.navigationController?.navigationBar.isHidden = false
         
         photoCollectionView.dataSource = self

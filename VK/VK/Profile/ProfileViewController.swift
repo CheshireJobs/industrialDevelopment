@@ -29,11 +29,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        #if DEBUG
-        view.backgroundColor = .green
-        #else
-        view.backgroundColor = .blue
-        #endif
+        
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -53,6 +49,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        view.backgroundColor = UIColor.appBackgroundColor
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
