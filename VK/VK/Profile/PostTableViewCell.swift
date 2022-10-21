@@ -24,7 +24,7 @@ final class PostTableViewCell: UITableViewCell {
         let postAuthorLabel = UILabel()
         postAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
         postAuthorLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        postAuthorLabel.textColor = .black
+        postAuthorLabel.textColor = .appLabelColor
         postAuthorLabel.numberOfLines = 2
         return postAuthorLabel
     }()
@@ -50,7 +50,7 @@ final class PostTableViewCell: UITableViewCell {
         let postLikesLabel = UILabel()
         postLikesLabel.translatesAutoresizingMaskIntoConstraints = false
         postLikesLabel.font = UIFont.systemFont(ofSize: 16)
-        postLikesLabel.textColor = .black
+        postLikesLabel.textColor = .appLabelColor
         return postLikesLabel
     }()
     
@@ -58,7 +58,7 @@ final class PostTableViewCell: UITableViewCell {
         let postViewsLabel = UILabel()
         postViewsLabel.translatesAutoresizingMaskIntoConstraints = false
         postViewsLabel.font = UIFont.systemFont(ofSize: 16)
-        postViewsLabel.textColor = .black
+        postViewsLabel.textColor = .appLabelColor
         return postViewsLabel
     }()
     

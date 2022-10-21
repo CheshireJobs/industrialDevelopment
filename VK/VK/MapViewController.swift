@@ -17,7 +17,7 @@ final class MapViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .white
+        view.backgroundColor = .appBackgroundColor
         setupMapView()
     }
     

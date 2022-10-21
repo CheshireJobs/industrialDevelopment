@@ -21,7 +21,7 @@
 // login
 "email_or_phone" = "Email or phone";
 "password" = "Password";
-"sign_in" = "Sidn in";
+"sign_in" = "Sign in";
 "sign_up" = "Sign up";
 "crack_password" = "Don't know password? Crack it!";
 

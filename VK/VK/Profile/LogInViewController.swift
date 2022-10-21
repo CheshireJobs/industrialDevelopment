@@ -94,7 +94,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.appBackgroundColor
         scrollView.keyboardDismissMode = .onDrag
         navigationController?.navigationBar.isHidden = true
         
@@ -193,7 +193,7 @@ class LogInViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.backgroundColor = .white
+        containerView.backgroundColor = UIColor.appBackgroundColor
         enterDataStackView.backgroundColor = .systemGray6
         separateView.backgroundColor = .lightGray
         
