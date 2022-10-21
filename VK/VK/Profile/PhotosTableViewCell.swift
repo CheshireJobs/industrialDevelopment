@@ -7,7 +7,7 @@ class PhotosTableViewCell: UITableViewCell {
         let headerLabel = UILabel()
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.text = "photos_title".localized
-        headerLabel.textColor = .black 
+        headerLabel.textColor = .appLabelColor
         headerLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return headerLabel
     }()
@@ -15,7 +15,7 @@ class PhotosTableViewCell: UITableViewCell {
     private let arrowImageView: UIImageView = {
         let arrowImageView = UIImageView(image: UIImage.init(systemName: "arrow.forward"))
         arrowImageView.translatesAutoresizingMaskIntoConstraints = false
-        arrowImageView.tintColor = UIColor.black
+        arrowImageView.tintColor = .appLabelColor
         return arrowImageView
     }()
 
