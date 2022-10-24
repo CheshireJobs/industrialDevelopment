@@ -43,7 +43,10 @@
 		3A7B7EF52664A1E2006C0FE2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */; };
 		3A7F7D4526D6760200DC2B8F /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */; };
 		3A7F7D4726D7A14600DC2B8F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F7D4626D7A14500DC2B8F /* PhotosCollectionViewCell.swift */; };
+		3A869C472906125100B9948E /* AuthRealmServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A869C462906125100B9948E /* AuthRealmServiceHelper.swift */; };
+		3A869C492906130F00B9948E /* AuthRealmServiceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A869C482906130F00B9948E /* AuthRealmServiceHelperTests.swift */; };
 		3A92061028CDCF820091970B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 3A92060F28CDCF820091970B /* KeychainAccess */; };
+		3A93A735290352B700D88E99 /* VKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A734290352B700D88E99 /* VKTests.swift */; };
 		3A9F23ED280717D9002F5641 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F23EC280717D9002F5641 /* TestUserService.swift */; };
 		3AA1FAB92824B8770090EF20 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1FAB82824B8770090EF20 /* Coordinator.swift */; };
 		3AAC89B028B9B4E200AF3436 /* CheckerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */; };
@@ -72,6 +75,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3A00E44927CC1F7C009A16AB;
 			remoteInfo = StorageService;
+		};
+		3A93A736290352B700D88E99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 060782A6250CE27700A87020 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 060782AD250CE27700A87020;
+			remoteInfo = VK;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -132,6 +142,10 @@
 		3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		3A7F7D4626D7A14500DC2B8F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A869C462906125100B9948E /* AuthRealmServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmServiceHelper.swift; sourceTree = "<group>"; };
+		3A869C482906130F00B9948E /* AuthRealmServiceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmServiceHelperTests.swift; sourceTree = "<group>"; };
+		3A93A732290352B700D88E99 /* VKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A93A734290352B700D88E99 /* VKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTests.swift; sourceTree = "<group>"; };
 		3A9F23EC280717D9002F5641 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		3AA1FAB82824B8770090EF20 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
@@ -174,6 +188,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A93A72F290352B700D88E99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -182,6 +203,7 @@
 			children = (
 				060782B0250CE27700A87020 /* VK */,
 				3A00E44B27CC1F7C009A16AB /* StorageService */,
+				3A93A733290352B700D88E99 /* VKTests */,
 				060782AF250CE27700A87020 /* Products */,
 				738E1FC50CB55A42003BCC80 /* Pods */,
 				42607360BF23188940C305F6 /* Frameworks */,
@@ -193,6 +215,7 @@
 			children = (
 				060782AE250CE27700A87020 /* VK.app */,
 				3A00E44A27CC1F7C009A16AB /* StorageService.framework */,
+				3A93A732290352B700D88E99 /* VKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,6 +316,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3A93A733290352B700D88E99 /* VKTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A93A734290352B700D88E99 /* VKTests.swift */,
+				3A869C482906130F00B9948E /* AuthRealmServiceHelperTests.swift */,
+			);
+			path = VKTests;
+			sourceTree = "<group>";
+		};
 		3ABFE2E3280A2C7D00DE477A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +333,7 @@
 				3A9F23EC280717D9002F5641 /* TestUserService.swift */,
 				3A6EFE592886278C00253DF8 /* NetworkService.swift */,
 				3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */,
+				3A869C462906125100B9948E /* AuthRealmServiceHelper.swift */,
 				3AF74B7A28C987A800E10991 /* AuthRealmService.swift */,
 			);
 			path = Services;
@@ -404,13 +437,31 @@
 			productReference = 3A00E44A27CC1F7C009A16AB /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3A93A731290352B700D88E99 /* VKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A93A73A290352B700D88E99 /* Build configuration list for PBXNativeTarget "VKTests" */;
+			buildPhases = (
+				3A93A72E290352B700D88E99 /* Sources */,
+				3A93A72F290352B700D88E99 /* Frameworks */,
+				3A93A730290352B700D88E99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A93A737290352B700D88E99 /* PBXTargetDependency */,
+			);
+			name = VKTests;
+			productName = VKTests;
+			productReference = 3A93A732290352B700D88E99 /* VKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		060782A6250CE27700A87020 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1170;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Artem Novichkov";
 				TargetAttributes = {
@@ -419,6 +470,10 @@
 					};
 					3A00E44927CC1F7C009A16AB = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					3A93A731290352B700D88E99 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 060782AD250CE27700A87020;
 					};
 				};
 			};
@@ -442,6 +497,7 @@
 			targets = (
 				060782AD250CE27700A87020 /* VK */,
 				3A00E44927CC1F7C009A16AB /* StorageService */,
+				3A93A731290352B700D88E99 /* VKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -460,6 +516,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3A00E44827CC1F7C009A16AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A93A730290352B700D88E99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,6 +634,7 @@
 				3A213A82283316F500CFC9F9 /* ModuleFactory.swift in Sources */,
 				3AF74B7B28C987A800E10991 /* AuthRealmService.swift in Sources */,
 				3A265225289225E000899459 /* JsonModel.swift in Sources */,
+				3A869C472906125100B9948E /* AuthRealmServiceHelper.swift in Sources */,
 				3A120EB728CAFAF800EF23C4 /* FavoritesViewController.swift in Sources */,
 				3AF74B7928C9698B00E10991 /* AuthRealmModel.swift in Sources */,
 				3AA1FAB92824B8770090EF20 /* Coordinator.swift in Sources */,
@@ -591,6 +655,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A93A72E290352B700D88E99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A869C492906130F00B9948E /* AuthRealmServiceHelperTests.swift in Sources */,
+				3A93A735290352B700D88E99 /* VKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -598,6 +671,11 @@
 			isa = PBXTargetDependency;
 			target = 3A00E44927CC1F7C009A16AB /* StorageService */;
 			targetProxy = 3A00E45027CC1F7C009A16AB /* PBXContainerItemProxy */;
+		};
+		3A93A737290352B700D88E99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 060782AD250CE27700A87020 /* VK */;
+			targetProxy = 3A93A736290352B700D88E99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -859,6 +937,46 @@
 			};
 			name = Release;
 		};
+		3A93A738290352B700D88E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZJS3C7TK6M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheshireJobs.VKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VK";
+			};
+			name = Debug;
+		};
+		3A93A739290352B700D88E99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZJS3C7TK6M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheshireJobs.VKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VK";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -885,6 +1003,15 @@
 			buildConfigurations = (
 				3A00E45527CC1F7C009A16AB /* Debug */,
 				3A00E45627CC1F7C009A16AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A93A73A290352B700D88E99 /* Build configuration list for PBXNativeTarget "VKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A93A738290352B700D88E99 /* Debug */,
+				3A93A739290352B700D88E99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

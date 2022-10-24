@@ -2,7 +2,7 @@ import UIKit
 import Security
 import FirebaseAuth
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, AuthRealmServicePresenter {
     
 // MARK: properties
     private let scrollView = UIScrollView()
@@ -42,6 +42,18 @@ class LogInViewController: UIViewController {
         }
         return singinButton
     }()
+    
+    func displayLoginErrorAlert(error: String) {
+        let alertController = UIAlertController(title: "signin_error".localized, message: error, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func displayProfile(login: String) {
+        let currentUserService = CurrentUserService(userLogin: login)
+        onLoginButtonTapped?(currentUserService, login)
+    }
     
     private lazy var singupButton: CustomButton = {
         let singupButton = CustomButton(title: "sign_up".localized, titleColor: .white)
