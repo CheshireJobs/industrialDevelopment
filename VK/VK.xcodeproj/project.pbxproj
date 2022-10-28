@@ -66,6 +66,8 @@
 		3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4B9EC28062C9F000F8B46 /* User.swift */; };
 		3AF74B7928C9698B00E10991 /* AuthRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */; };
 		3AF74B7B28C987A800E10991 /* AuthRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7A28C987A800E10991 /* AuthRealmService.swift */; };
+		3AF8C03E290B64140058306A /* CheckerServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8C03D290B64140058306A /* CheckerServiceHelper.swift */; };
+		3AF8C040290B657D0058306A /* CheckerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8C03F290B657D0058306A /* CheckerServiceTests.swift */; };
 		7FB463C05F85D94087E64A35 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198565516217D19FD64B676D /* Pods_StorageService.framework */; };
 		BC037E2E8E643F6D5F299A2B /* Pods_VK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5191A6B14113440E4DA2B908 /* Pods_VK.framework */; };
 /* End PBXBuildFile section */
@@ -167,6 +169,8 @@
 		3AE4B9EC28062C9F000F8B46 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmModel.swift; sourceTree = "<group>"; };
 		3AF74B7A28C987A800E10991 /* AuthRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmService.swift; sourceTree = "<group>"; };
+		3AF8C03D290B64140058306A /* CheckerServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerServiceHelper.swift; sourceTree = "<group>"; };
+		3AF8C03F290B657D0058306A /* CheckerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerServiceTests.swift; sourceTree = "<group>"; };
 		5191A6B14113440E4DA2B908 /* Pods_VK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD089A2D1CFA6DDCED51AD9F /* Pods-VK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.release.xcconfig"; path = "Target Support Files/Pods-VK/Pods-VK.release.xcconfig"; sourceTree = "<group>"; };
 		FC245701FA3EA41B19EEF44E /* Pods-VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.debug.xcconfig"; path = "Target Support Files/Pods-VK/Pods-VK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				3A93A734290352B700D88E99 /* VKTests.swift */,
 				3A869C482906130F00B9948E /* AuthRealmServiceHelperTests.swift */,
 				3ADD22352907734200A64CC2 /* DataBaseManagerTests.swift */,
+				3AF8C03F290B657D0058306A /* CheckerServiceTests.swift */,
 			);
 			path = VKTests;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				3A9F23EC280717D9002F5641 /* TestUserService.swift */,
 				3A6EFE592886278C00253DF8 /* NetworkService.swift */,
 				3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */,
+				3AF8C03D290B64140058306A /* CheckerServiceHelper.swift */,
 				3A869C462906125100B9948E /* AuthRealmServiceHelper.swift */,
 				3AF74B7A28C987A800E10991 /* AuthRealmService.swift */,
 			);
@@ -609,6 +615,7 @@
 				3ABFE2EE280A32BC00DE477A /* LoginFactoryProtocol.swift in Sources */,
 				3A307A46289CC2FA00E06123 /* PlanetModel.swift in Sources */,
 				3A7F7D4526D6760200DC2B8F /* PhotosTableViewCell.swift in Sources */,
+				3AF8C03E290B64140058306A /* CheckerServiceHelper.swift in Sources */,
 				3ABFE2F0280A32F100DE477A /* MyLoginFactory.swift in Sources */,
 				3A7F7D4726D7A14600DC2B8F /* PhotosCollectionViewCell.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
@@ -667,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A869C492906130F00B9948E /* AuthRealmServiceHelperTests.swift in Sources */,
+				3AF8C040290B657D0058306A /* CheckerServiceTests.swift in Sources */,
 				3A93A735290352B700D88E99 /* VKTests.swift in Sources */,
 				3ADD22362907734200A64CC2 /* DataBaseManagerTests.swift in Sources */,
 			);

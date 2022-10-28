@@ -2,8 +2,7 @@ import UIKit
 import Security
 import FirebaseAuth
 
-class LogInViewController: UIViewController, AuthRealmServicePresenter {
-    
+class LogInViewController: UIViewController, AuthRealmServicePresenter, CheckerHelperPresenter {
 // MARK: properties
     private let scrollView = UIScrollView()
     private let containerView = UIView()
@@ -35,15 +34,15 @@ class LogInViewController: UIViewController, AuthRealmServicePresenter {
         singinButton.clipsToBounds = true
         singinButton.isEnabled = false
         singinButton.onTap = {
-//            self.delegate?.checheckCredentials(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+            self.delegate?.checheckCredentials(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
             
-            self.authRealm.signIn(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+//            self.authRealm.signIn(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
             
         }
         return singinButton
     }()
     
-    func displayLoginErrorAlert(error: String) {
+    func displayErrorAlert(error: String) {
         let alertController = UIAlertController(title: "signin_error".localized, message: error, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
         alertController.addAction(cancelAction)
@@ -55,6 +54,10 @@ class LogInViewController: UIViewController, AuthRealmServicePresenter {
         onLoginButtonTapped?(currentUserService, login)
     }
     
+    func signUp() {
+        print("succsess")
+    }
+    
     private lazy var singupButton: CustomButton = {
         let singupButton = CustomButton(title: "sign_up".localized, titleColor: .white)
         singupButton.backgroundColor = .systemGreen
@@ -62,9 +65,9 @@ class LogInViewController: UIViewController, AuthRealmServicePresenter {
         singupButton.clipsToBounds = true
         singupButton.isEnabled = false
         singupButton.onTap = {
-//            self.delegate?.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+            self.delegate?.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
             
-            self.authRealm.signUp(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+//            self.authRealm.signUp(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
         }
         return singupButton
     }()

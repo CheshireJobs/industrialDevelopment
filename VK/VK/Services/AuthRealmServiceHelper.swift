@@ -3,7 +3,7 @@ import FirebaseAuth
 
 protocol AuthRealmServicePresenter {
     func displayProfile(login: String)
-    func displayLoginErrorAlert(error: String)
+    func displayErrorAlert(error: String)
 }
 
 class AuthRealmServiceHelper {
@@ -17,11 +17,11 @@ class AuthRealmServiceHelper {
     
     func checkCredentials(login: String, password: String) {
         guard let user = users?.filter({$0.login == login}).first else {
-            presenter?.displayLoginErrorAlert(error: "login_error_text".localized)
+            presenter?.displayErrorAlert(error: "login_error_text".localized)
             return
         }
          guard user.password == password else {
-             presenter?.displayLoginErrorAlert(error: "password_error_text".localized)
+             presenter?.displayErrorAlert(error: "password_error_text".localized)
             return
         }
         

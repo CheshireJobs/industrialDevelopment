@@ -33,7 +33,7 @@ class AuthRealmServicePresenterMock: AuthRealmServicePresenter {
         didDisplayProfile = true
     }
     
-    func displayLoginErrorAlert(error: String) {
+    func displayErrorAlert(error: String) {
         didDisplayErrorAlert = true
     }
     
