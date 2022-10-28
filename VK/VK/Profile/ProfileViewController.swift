@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
         self.userService = userService
         super.init(nibName: nil, bundle: nil)
         currentUser = userService.getUser(userLogin: userLogin)
+        DataBaseManager.shared.dataBaseManagerHelper = DataBaseManagerHelper()
     }
     
     required init?(coder: NSCoder) {
@@ -115,7 +116,6 @@ extension ProfileViewController: UITableViewDataSource {
         let touchLocation: CGPoint = sender.location(in: sender.view)
         guard let indexPath: IndexPath = tableView.indexPathForRow(at: touchLocation) else { return }
         DataBaseManager.shared.saveToFavorites(post: postTableModel[indexPath.row])
-        print("addPostToFavorites: \(indexPath.row)")
     }
     
 }

@@ -61,6 +61,8 @@
 		3AC6189826D1727B005F46C4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */; };
 		3AC6189A26D19FD4005F46C4 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */; };
 		3AC9800E28ED03A8001D952A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9800D28ED03A8001D952A /* MapViewController.swift */; };
+		3ADD223429072D6900A64CC2 /* DataBaseManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD223329072D6900A64CC2 /* DataBaseManagerHelper.swift */; };
+		3ADD22362907734200A64CC2 /* DataBaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD22352907734200A64CC2 /* DataBaseManagerTests.swift */; };
 		3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4B9EC28062C9F000F8B46 /* User.swift */; };
 		3AF74B7928C9698B00E10991 /* AuthRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */; };
 		3AF74B7B28C987A800E10991 /* AuthRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF74B7A28C987A800E10991 /* AuthRealmService.swift */; };
@@ -160,6 +162,8 @@
 		3AC6189726D1727B005F46C4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3AC6189926D19FD4005F46C4 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		3AC9800D28ED03A8001D952A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3ADD223329072D6900A64CC2 /* DataBaseManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManagerHelper.swift; sourceTree = "<group>"; };
+		3ADD22352907734200A64CC2 /* DataBaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManagerTests.swift; sourceTree = "<group>"; };
 		3AE4B9EC28062C9F000F8B46 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3AF74B7828C9698B00E10991 /* AuthRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmModel.swift; sourceTree = "<group>"; };
 		3AF74B7A28C987A800E10991 /* AuthRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealmService.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 			children = (
 				3A120EBA28CB121C00EF23C4 /* DataBaseModel.xcdatamodeld */,
 				3A120EBD28CB15F400EF23C4 /* DataBaseManager.swift */,
+				3ADD223329072D6900A64CC2 /* DataBaseManagerHelper.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			children = (
 				3A93A734290352B700D88E99 /* VKTests.swift */,
 				3A869C482906130F00B9948E /* AuthRealmServiceHelperTests.swift */,
+				3ADD22352907734200A64CC2 /* DataBaseManagerTests.swift */,
 			);
 			path = VKTests;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 				3AAC89B228B9B50400AF3436 /* CheckerServiceProtocol.swift in Sources */,
 				3A7B7EF32664A14B006C0FE2 /* ProfileHeaderView.swift in Sources */,
 				3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */,
+				3ADD223429072D6900A64CC2 /* DataBaseManagerHelper.swift in Sources */,
 				3AAC89B028B9B4E200AF3436 /* CheckerService.swift in Sources */,
 				3A0340CC28349CAF00F26408 /* BruteForceService.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
@@ -661,6 +668,7 @@
 			files = (
 				3A869C492906130F00B9948E /* AuthRealmServiceHelperTests.swift in Sources */,
 				3A93A735290352B700D88E99 /* VKTests.swift in Sources */,
+				3ADD22362907734200A64CC2 /* DataBaseManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
