@@ -4,6 +4,7 @@ import KeychainAccess
 
 final class AuthRealmService {
     static let shared = AuthRealmService()
+    var authRealmServiceHelper: AuthRealmServiceHelper?
     
     private let userDefaults = UserDefaults.standard
     
@@ -27,29 +28,16 @@ final class AuthRealmService {
         }
     }
     
-    func signIn(login: String, password: String, controller: LogInViewController) {
+    func getUsers() -> Results<AuthRealmModel> {
         let configuration = Realm.Configuration(encryptionKey: getKey() as Data)
         let realm = try? Realm(configuration: configuration)
         guard let users: Results<AuthRealmModel> = { realm?.objects(AuthRealmModel.self) }() else { fatalError() }
-        guard let user = users.filter({$0.login == login }).first else {
-            let alertController = UIAlertController(title: "signin_error".localized, message: "login_error_text".localized, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
-            alertController.addAction(cancelAction)
-            controller.present(alertController, animated: true, completion: nil)
-            return
-        }
-         guard user.password == password else {
-             let alertController = UIAlertController(title: "signin_error".localized, message: "password_error_text".localized, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
-            alertController.addAction(cancelAction)
-            controller.present(alertController, animated: true, completion: nil)
-            return
-        }
-        let currentUserService = CurrentUserService(userLogin: login)
-        controller.onLoginButtonTapped?(currentUserService, login)
-        userDefaults.set(true, forKey: "isAuthorized")
-        userDefaults.set(login, forKey: "userInfo")
-        
+        return users
+    }
+    
+    func signIn(login: String, password: String, controller: LogInViewController) {
+        authRealmServiceHelper = AuthRealmServiceHelper(presenter: controller)
+        authRealmServiceHelper?.checkCredentials(login: login, password: password)
     }
     
     func signOut() {

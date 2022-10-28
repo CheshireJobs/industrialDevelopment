@@ -6,17 +6,21 @@ class DataBaseManager {
     static let shared = DataBaseManager()
     
     let persistentContainer: NSPersistentContainer
+    var dataBaseManagerHelper: PostHandler?
     
     func saveToFavorites(post: MyPost) {
         let fetchRequest = Posts.fetchRequest()
         let predicate = NSPredicate(format: "%K LIKE %@", #keyPath(Posts.author), post.author)
         fetchRequest.predicate = predicate
+        
         do {
             let posts = try persistentContainer.viewContext.fetch(fetchRequest)
-            if !posts.isEmpty{
+            guard posts.isEmpty else {
+                dataBaseManagerHelper?.alreadyExist()
                 return
             }
-            if let newPost = NSEntityDescription.insertNewObject(forEntityName: "Posts", into: persistentContainer.viewContext) as? Posts {
+            if var newPost = NSEntityDescription.insertNewObject(forEntityName: "Posts", into: persistentContainer.viewContext) as? Posts {
+                
                 newPost.author = post.author
                 newPost.image = post.image
                 newPost.text = post.description
@@ -26,7 +30,7 @@ class DataBaseManager {
                 try persistentContainer.viewContext.save()
             }
         } catch let error {
-            print(error)
+            dataBaseManagerHelper?.cannotSavePost(error: error.localizedDescription)
         }
     }
     
@@ -35,7 +39,7 @@ class DataBaseManager {
             persistentContainer.viewContext.delete(post)
             try persistentContainer.viewContext.save()
         } catch let error {
-            print(error)
+           print(error)
         }
     }
     
