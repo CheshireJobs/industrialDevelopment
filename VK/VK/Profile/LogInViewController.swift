@@ -1,9 +1,9 @@
 import UIKit
+import SwiftUI
 import Security
 import FirebaseAuth
 
 class LogInViewController: UIViewController {
-    
 // MARK: properties
     private let scrollView = UIScrollView()
     private let containerView = UIView()
@@ -52,11 +52,35 @@ class LogInViewController: UIViewController {
         singupButton.onTap = {
 //            self.delegate?.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
             
-            self.authRealm.signUp(login:  self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
+            self.authRealm.signUp(login: self.emailTextField.text ?? "error", password: self.passwordTextField.text ?? "error", controller: self)
         }
         return singupButton
     }()
     
+    func authorizationFinished(success: Bool, error: String) -> Void {
+        DispatchQueue.main.async {
+            if success {
+                self.authRealm.signIn(login: "cheshireSpb@yandex.ru", password: "cheshirespbpassword", controller: self)
+            } else {
+                let alertController = UIAlertController(title: "Biometrics error", message: error, preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in }
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private lazy var biometricsSignInButton: UIButton = {
+        let biometricsSignInButton = UIButton()
+        biometricsSignInButton.setBackgroundImage(UIImage(systemName: LocalAuthorizationService.shared.biometryType == .faceID ? "faceid" : "touchid"), for: .normal)
+        biometricsSignInButton.addTarget(self, action: #selector(biometricsSignTapped), for: .touchUpInside)
+        return biometricsSignInButton
+    }()
+    
+    @objc func biometricsSignTapped() {
+        LocalAuthorizationService.shared.authorizeIfPossible(authorizationFinished)
+    }
+
     private lazy var guessPasswordButton: CustomButton = {
         let guessPasswordButton = CustomButton(title: "crack_password".localized, titleColor: .white)
         guessPasswordButton.setBackgroundImage( UIImage.init(named: "blue_pixel"), for: .normal)
@@ -78,7 +102,6 @@ class LogInViewController: UIViewController {
         return emailTextField
     }()
     
-    
     private let passwordTextField: UITextField = {
         let passwordTextField = UITextField()
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: passwordTextField.frame.height))
@@ -88,7 +111,6 @@ class LogInViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 10
         passwordTextField.placeholder = "password".localized
         passwordTextField.isSecureTextEntry = true
-        
         return passwordTextField
     }()
     
@@ -201,11 +223,13 @@ class LogInViewController: UIViewController {
         enterDataStackView.translatesAutoresizingMaskIntoConstraints = false
         singinButton.translatesAutoresizingMaskIntoConstraints = false
         singupButton.translatesAutoresizingMaskIntoConstraints = false
+        biometricsSignInButton.translatesAutoresizingMaskIntoConstraints = false
         guessPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
         containerView.addSubviews(singinButton,
                                   singupButton,
+                                  biometricsSignInButton,
                                   guessPasswordButton,
                                   logoImageView,
                                   enterDataStackView,
@@ -242,20 +266,23 @@ class LogInViewController: UIViewController {
             guessPasswordButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             guessPasswordButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             guessPasswordButton.topAnchor.constraint(equalTo: singinButton.bottomAnchor, constant: 16),
+            
+            biometricsSignInButton.heightAnchor.constraint(equalToConstant: 50),
+            biometricsSignInButton.widthAnchor.constraint(equalToConstant: 50),
+            biometricsSignInButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            biometricsSignInButton.topAnchor.constraint(equalTo: guessPasswordButton.bottomAnchor, constant: 16),
 
             singupButton.heightAnchor.constraint(equalToConstant: 50),
             singupButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             singupButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            singupButton.topAnchor.constraint(equalTo: guessPasswordButton.bottomAnchor, constant: 26),
+            singupButton.topAnchor.constraint(equalTo: biometricsSignInButton.bottomAnchor, constant: 26),
             singupButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
             activityIndicatorView.trailingAnchor.constraint(equalTo: enterDataStackView.trailingAnchor,constant: -16),
             activityIndicatorView.centerYAnchor.constraint(equalTo: enterDataStackView.bottomAnchor, constant: -49.75/2)
         ]
-        
         NSLayoutConstraint.activate(constraints)
     }
-
 }
 
 extension UIView {
