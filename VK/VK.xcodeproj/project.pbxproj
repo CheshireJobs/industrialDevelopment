@@ -43,6 +43,7 @@
 		3A7B7EF52664A1E2006C0FE2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */; };
 		3A7F7D4526D6760200DC2B8F /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */; };
 		3A7F7D4726D7A14600DC2B8F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F7D4626D7A14500DC2B8F /* PhotosCollectionViewCell.swift */; };
+		3A8D275C2927D3CF00B21F43 /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D275B2927D3CF00B21F43 /* LocalNotificationsService.swift */; };
 		3A92061028CDCF820091970B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 3A92060F28CDCF820091970B /* KeychainAccess */; };
 		3A9F23ED280717D9002F5641 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F23EC280717D9002F5641 /* TestUserService.swift */; };
 		3AA1FAB92824B8770090EF20 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1FAB82824B8770090EF20 /* Coordinator.swift */; };
@@ -133,6 +134,7 @@
 		3A7B7EF42664A1E2006C0FE2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3A7F7D4426D6760200DC2B8F /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		3A7F7D4626D7A14500DC2B8F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A8D275B2927D3CF00B21F43 /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 		3A9F23EC280717D9002F5641 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		3AA1FAB82824B8770090EF20 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				3AAC89AF28B9B4E200AF3436 /* CheckerService.swift */,
 				3AF74B7A28C987A800E10991 /* AuthRealmService.swift */,
 				3AF341882925A0430032B885 /* LocalAuthorizationService.swift */,
+				3A8D275B2927D3CF00B21F43 /* LocalNotificationsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				3ABFE2EC280A30E600DE477A /* LoginInspector.swift in Sources */,
 				3AAC89B228B9B50400AF3436 /* CheckerServiceProtocol.swift in Sources */,
 				3A7B7EF32664A14B006C0FE2 /* ProfileHeaderView.swift in Sources */,
+				3A8D275C2927D3CF00B21F43 /* LocalNotificationsService.swift in Sources */,
 				3AE4B9ED28062C9F000F8B46 /* User.swift in Sources */,
 				3AAC89B028B9B4E200AF3436 /* CheckerService.swift in Sources */,
 				3A0340CC28349CAF00F26408 /* BruteForceService.swift in Sources */,
