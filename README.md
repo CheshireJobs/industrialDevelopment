@@ -1,5 +1,9 @@
-# ![VK](./Assets.xcassets/logo.imageset/logo.png)
-## Проект создания приложения на подобии социальной сети Вконтакте
+# VK
+<p align="left" width="15%">
+    <img width="10%" src="./VK/VK/Assets.xcassets/logo.imageset/logo.png"> 
+ </p>
+ 
+## Проект создания приложения на базе интерфейса социальной сети Вконтакте
 
 ## Функционал
 
@@ -14,15 +18,34 @@
 **Проект написан с использованием архитиктуры MVVM + Coordinator.**
 
  # Pods for VK
-  pod 'SnapKit', '~> 5.0.0'
-  pod 'FirebaseAuth'
-  pod 'Firebase/Core'
-  pod 'RealmSwift'
+  - pod 'SnapKit', '~> 5.0.0'
+  - pod 'FirebaseAuth'
+  - pod 'Firebase/Core'
+  - pod 'RealmSwift'
   
 # Интерфейс приложения
 
-![Экран входа](./Assets.xcassets/loginScreen.imageset/loginScreen.png)
-![Новости](./Assets.xcassets/feed.imageset/feed.png)
-![Профиль](./Assets.xcassets/profile.imageset/profile.png)
-![Галерея](./Assets.xcassets/photoGallery.imageset/photoGallery.png)
-![Поиск по избранному](./Assets.xcassets/favoritesFilter.imageset/favoritesFilter.png)
+## Экран входа
+<p align="left" width="20%">
+    <img width="20%" src="./VK/VK/Assets.xcassets/loginScreen.imageset/loginScreen.png"> 
+</p>
+
+## Новости
+<p align="left" width="20%">
+    <img width="20%" src="./VK/VK/Assets.xcassets/feed.imageset/feed.png"> 
+</p>
+  
+## Профиль
+<p align="left" width="20%">
+    <img width="20%" src="./VK/VK/Assets.xcassets/profile.imageset/profile.png"> 
+</p>
+  
+## Галерея
+<p align="left" width="20%">
+    <img width="20%" src="./VK/VK/Assets.xcassets/photoGallery.imageset/photoGallery.png"> 
+</p>
+  
+## Поиск по избранному
+<p align="left" width="20%">
+    <img width="20%" src="./VK/VK/Assets.xcassets/favoritesFilter.imageset/favoritesFilter.png"> 
+</p>
