@@ -4,10 +4,9 @@ import iOSIntPackage
 import SnapKit
 
 final class PostTableViewCell: UITableViewCell {
-    
-//MARK: properties
     var post: MyPost! {
         didSet {
+            postAuthorImageView.image = UIImage(named: post!.authorImage)
             postAuthorLabel.text = post!.author
             let imageProcessor = ImageProcessor()
             let sourcePhoto = UIImage(named: post!.image)
@@ -15,17 +14,28 @@ final class PostTableViewCell: UITableViewCell {
             postDescriptionLabel.text = post!.description
             let localized = NSLocalizedString("any_likes", comment: "")
             let formatted = String.localizedStringWithFormat(localized, post!.likes)
-            postLikesLabel.text = formatted//"likes_title".localized + "\(String(describing: post!.likes))"
+            postLikesLabel.text = formatted
             postViewLabel.text = "views_title".localized + "\(String(describing: post!.views))"
         }
     }
-
+    
+    private let postAuthorImageView: UIImageView = {
+        let postAuthorImageView = UIImageView()
+        postAuthorImageView.translatesAutoresizingMaskIntoConstraints = false
+        postAuthorImageView.contentMode = .scaleAspectFill
+        postAuthorImageView.layer.borderWidth = 2
+        postAuthorImageView.layer.borderColor = UIColor.white.cgColor
+        postAuthorImageView.layer.cornerRadius = 50 / 2
+        postAuthorImageView.clipsToBounds = true
+        return postAuthorImageView
+    }()
+    
     private let postAuthorLabel: UILabel = {
         let postAuthorLabel = UILabel()
         postAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
         postAuthorLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         postAuthorLabel.textColor = .appLabelColor
-        postAuthorLabel.numberOfLines = 2
+        postAuthorLabel.numberOfLines = 1
         return postAuthorLabel
     }()
     
@@ -78,6 +88,7 @@ final class PostTableViewCell: UITableViewCell {
 //MARK: layout
 private extension PostTableViewCell {
     func setupConstraints() {
+        contentView.addSubview(postAuthorImageView)
         contentView.addSubview(postAuthorLabel)
         contentView.addSubview(postImageView)
         contentView.addSubview(postDescriptionLabel)
@@ -85,13 +96,18 @@ private extension PostTableViewCell {
         contentView.addSubview(postViewLabel)
         
         let constraints = [
-            postAuthorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            postAuthorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            postAuthorImageView.widthAnchor.constraint(equalToConstant: 50),
+            postAuthorImageView.heightAnchor.constraint(equalToConstant: 50),
+            postAuthorImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            postAuthorImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
+            
+            postAuthorLabel.centerYAnchor.constraint(equalTo: postAuthorImageView.centerYAnchor),
+            postAuthorLabel.leadingAnchor.constraint(equalTo: postAuthorImageView.trailingAnchor, constant: 6),
             postAuthorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
-            postImageView.topAnchor.constraint(equalTo: postAuthorLabel.bottomAnchor, constant: 12),
+            postImageView.topAnchor.constraint(equalTo: postAuthorImageView.bottomAnchor, constant: 6),
             postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            postImageView.heightAnchor.constraint(equalTo:  postImageView.widthAnchor),
+            postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor),
             postImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 
             postDescriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),

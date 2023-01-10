@@ -3,14 +3,13 @@ import UIKit
 import SnapKit
 
 class ProfileHeaderView: UIView {
-    
     var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.image = UIImage(named: "Jobs")
         avatarImageView.layer.borderWidth = 2
         avatarImageView.layer.borderColor = UIColor.white.cgColor
-        avatarImageView.layer.cornerRadius = 130 / 2
+        avatarImageView.layer.cornerRadius = 120 / 2
         avatarImageView.clipsToBounds = true
         return avatarImageView
     }()
@@ -91,7 +90,7 @@ class ProfileHeaderView: UIView {
         avatarImageView.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(16)
             make.top.equalTo(self.snp.top).offset(16)
-            make.height.width.equalTo(130)
+            make.height.width.equalTo(120)
         }
         setStatusButton.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(16)

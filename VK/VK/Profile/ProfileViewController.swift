@@ -3,17 +3,21 @@ import UIKit
 import StorageService
 
 class ProfileViewController: UIViewController {
-    
+    private var viewModel: ProfileViewModel
     private let tableView = UITableView()
-    private let reuseID = "cellId"
-    private var userService: UserService
-    var currentUser: User?
-    var onPhotosRowSelected: (() -> Void)?
     
-    init(userService: UserService, userLogin: String) {
-        self.userService = userService
+    private lazy var exitButton: UIBarButtonItem = {
+        var rightItemBarButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .done, target: self, action: #selector(onExitButtonTapped))
+        return rightItemBarButton
+    }()
+    
+    @objc private func onExitButtonTapped() {
+        viewModel.send(.exitButtonTapped)
+    }
+    
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        currentUser = userService.getUser(userLogin: userLogin)
     }
     
     required init?(coder: NSCoder) {
@@ -25,24 +29,41 @@ class ProfileViewController: UIViewController {
         
         setupConstraints()
         setupTableView()
+        setupViewModel()
+        viewModel.send(.viewIsReady)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = true
+        self.navigationItem.rightBarButtonItem = exitButton
+    }
+    
+    private func setupViewModel() {
+        viewModel.onSatateChanged = { [weak self] state in
+            guard let self = self else {return}
+            
+            switch state {
+            case .initial:
+                ()
+            case .loading:
+                ()
+            case .loaded:
+                self.tableView.reloadData()
+            }
+        }
     }
     
     private func setupTableView() {
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: reuseID)
         tableView.register(
             ProfileTableHeaderView.self,
-            forHeaderFooterViewReuseIdentifier: String(describing: ProfileTableHeaderView.self)
-        )
+            forHeaderFooterViewReuseIdentifier: String(describing: ProfileTableHeaderView.self))
         tableView.register(
             PhotosTableViewCell.self,
-            forCellReuseIdentifier: String(describing: PhotosTableViewCell.self)
-        )
+            forCellReuseIdentifier: String(describing: PhotosTableViewCell.self))
+        tableView.register(
+            PostTableViewCell.self,
+            forCellReuseIdentifier: String(describing: PostTableViewCell.self))
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -63,7 +84,6 @@ class ProfileViewController: UIViewController {
     }
 }
 
-//MARK: UITableViewDataSource
 extension ProfileViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -74,11 +94,10 @@ extension ProfileViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return postTableModel.count
+            return viewModel.posts.count
         default:
             return 0
         }
-
     }
             
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,8 +108,8 @@ extension ProfileViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotosTableViewCell.self), for: indexPath) as! PhotosTableViewCell
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! PostTableViewCell
-            cell.post = postTableModel[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableViewCell.self), for: indexPath) as! PostTableViewCell
+            cell.post = viewModel.posts[indexPath.row]
             return cell
         default:
             return cell
@@ -102,35 +121,33 @@ extension ProfileViewController: UITableViewDataSource {
             guard let profileTableHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as? ProfileTableHeaderView else {
                 return nil
             }
-            profileTableHeaderView.profileHeaderView.fullNameLabel.text = currentUser?.fullName
-            profileTableHeaderView.profileHeaderView.avatarImageView.image = UIImage(named: currentUser?.photo ?? "logo")
-            profileTableHeaderView.profileHeaderView.statusTextField.text = currentUser?.statusString
+            profileTableHeaderView.profileHeaderView.fullNameLabel.text = viewModel.currentUser?.fullName
+            profileTableHeaderView.profileHeaderView.avatarImageView.image = UIImage(named: viewModel.currentUser?.photo ?? "logo")
+            profileTableHeaderView.profileHeaderView.statusTextField.text = viewModel.currentUser?.statusString
             return profileTableHeaderView
         } else {
             return nil
         }
     }
     
-    @objc func doubleTaped(sender: UIGestureRecognizer) {
-        let touchLocation: CGPoint = sender.location(in: sender.view)
-        guard let indexPath: IndexPath = tableView.indexPathForRow(at: touchLocation) else { return }
-        DataBaseManager.shared.saveToFavorites(post: postTableModel[indexPath.row])
-        print("addPostToFavorites: \(indexPath.row)")
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var sectionName = String()
+        switch section {
+        case 0:
+            break
+        case 1:
+            sectionName = "Мои записи"
+        default:
+            break
+        }
+        return sectionName
     }
-    
 }
 
-//MARK: UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            onPhotosRowSelected?()
-        }
-        if indexPath.section == 1 {
-            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTaped))
-            doubleTap.numberOfTapsRequired = 2
-            tableView.addGestureRecognizer(doubleTap)
+            viewModel.send(.photosRowSelected)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

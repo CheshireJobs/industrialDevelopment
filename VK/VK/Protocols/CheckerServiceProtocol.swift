@@ -1,7 +1,12 @@
 import Foundation
 import UIKit
 
+enum AuthResponce {
+    case error(String)
+    case succes
+}
+
 protocol CheckerServiceProtocol {
-    func checheckCredentials(login: String, password: String, controller: LogInViewController)
-    func signUp(login: String, password: String, controller: LogInViewController)
+    func signIn(login: String, password: String) -> AuthResponce
+    func signUp(login: String, password: String) -> AuthResponce
 }

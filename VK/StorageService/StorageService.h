@@ -1,11 +1,3 @@
-//
-//  StorageService.h
-//  StorageService
-//
-//  Created by Olen'ka Yurinova on 28.02.2022.
-//  Copyright © 2022 Artem Novichkov. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for StorageService.

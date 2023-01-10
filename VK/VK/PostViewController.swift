@@ -3,7 +3,6 @@ import StorageService
 
 class PostViewController: UIViewController {
     
-    var post: Post?
     var onRightItemBarButtonTapped: (() -> Void)?
     private lazy var rightItemBarButton: UIBarButtonItem = {
         var rightItemBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showInfoViewController))
@@ -12,7 +11,6 @@ class PostViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = post?.title
         
         view.backgroundColor = .white
     }

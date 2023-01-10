@@ -1,4 +1,4 @@
 
-public struct Post {
-    public var title: String
-}
+//public struct Post {
+//    public var title: String
+//}
