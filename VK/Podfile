@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '15.2'
+
+target 'StorageService' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for StorageService
+
+end
+
+target 'VK' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for VK
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'FirebaseAuth'
+  pod 'Firebase/Core'
+  pod 'RealmSwift'
+
+end
